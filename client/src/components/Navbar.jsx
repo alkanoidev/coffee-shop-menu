@@ -1,9 +1,12 @@
 import React from "react";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
-    <nav className="bg-brown border-gray-200 px-2 sm:px-4 py-2.5 ">
-      <div className="container flex flex-wrap justify-between items-center mx-auto">
+    <nav className="rounded rounded-t-none rounded-r-none bg-brown border-gray-200 px-2 sm:px-5 py-2.5 w-full">
+      <div className="flex flex-wrap justify-between items-center w-full">
         <a href="/" className="flex items-center">
           <img
             src="/logo.png"
@@ -33,16 +36,16 @@ export default function Navbar() {
             <input
               type="text"
               id="email-address-icon"
-              className="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block p-2 pl-10 w-full text-gray-900 bg-gray-200 rounded-lg border border-gray-300 sm:text-sm focus:ring-brown focus:outline-none"
               placeholder="Search..."
             />
           </div>
           <button
-            data-collapse-toggle="mobile-menu-3"
+            onClick={() => {
+              setCollapsed((prev) => !prev);
+            }}
             type="button"
             className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="mobile-menu-3"
-            aria-expanded="false"
           >
             <span className="sr-only">Open main menu</span>
             <svg
@@ -72,33 +75,27 @@ export default function Navbar() {
           </button>
         </div>
         <div
-          className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
+          className={`${
+            !collapsed ? "flex" : "hidden"
+          } justify-between items-center w-full md:flex md:w-auto md:order-1`}
           id="mobile-menu-3"
         >
-          <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+          <ul className="flex flex-col mt-4 md:flex-row w-full md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                className="rounded transition block py-2 pr-4 pl-3 text-lg md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 "
                 aria-current="page"
               >
-                Home
+                All Items
               </a>
             </li>
             <li>
               <a
                 href="#"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="rounded transition block py-2 pr-4 pl-3 text-lg md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0"
               >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                Services
+                Categories
               </a>
             </li>
           </ul>
