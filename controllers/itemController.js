@@ -6,6 +6,6 @@ exports.item_list = async function (req, res) {
 };
 
 exports.item = async function (req, res) {
-  const item = await Item.findOne({ name: req.params.name }).exec();
+  const item = await Item.find({ name: req.params.name }).exec();
   res.json({ item: item });
 };
