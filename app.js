@@ -4,10 +4,11 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const port = process.env.PORT || 3001;
-const mongoose = require("mongoose");
+const { MongoClient } = require("mongodb");
 const cors = require("cors");
 
-const indexRouter = require("./routes/index");
+const itemRouter = require("./routes/itemRouter");
+const categoryRouter = require("./routes/categoryRouter");
 
 const app = express();
 
@@ -23,7 +24,8 @@ app.get("/", (req, res) => {
   res.redirect("/items");
 });
 
-app.use("/items", indexRouter);
+app.use("/items", itemRouter);
+app.use("/categories", categoryRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
@@ -36,14 +38,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.send("error");
 });
-
-const mongoDB =
-  "mongodb+srv://root:root@cluster0.w8w3a.mongodb.net/inventoryapplication?retryWrites=true&w=majority";
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
-
-const db = mongoose.connection;
-
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

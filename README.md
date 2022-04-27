@@ -6,3 +6,10 @@
 
 ## design inspo
 [starbucks menu](https://www.starbucks.com/menu)
+
+# front 
+- axios i react-query
+
+
+
+mvc

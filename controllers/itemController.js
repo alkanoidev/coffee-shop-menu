@@ -1,11 +1,32 @@
-const Item = require("../models/Item.js");
+const { client, database } = require("../mongoHelper.js");
+const item = require("../models/Item.js");
+const category = require("../models/Category.js");
 
-exports.item_list = async function (req, res) {
-  const item_list = await Item.find({}).populate("category").exec();
-  res.json({ item_list: item_list });
+exports.itemList = async (req, res) => {
+  res.json({ itemList: await item.getAllItems() });
 };
 
-exports.item = async function (req, res) {
-  const item = await Item.find({ name: req.params.name }).exec();
-  res.json({ item: item });
+exports.item = async (req, res) => {
+  res.json({ item: await item.getItem(req.params) });
+};
+
+exports.newItem = async (req, res) => {
+  const categoryName = req.params.category;
+  const categoryId = await category.getCategory({ name: categoryName })._id;
+
+  const result = item.newItem({ ...req.body.item, categoryId });
+  res.json({ result: result });
+};
+
+exports.editItem = async (req, res) => {
+  const newItem = req.body.item;
+  const _id = await item.getItem(req.params)._id;
+  const result = await item.editItem(_id, newItem);
+  res.json({ result: result });
+};
+
+exports.deleteItem = async (req, res) => {
+  const item1 = await item.getItem(req.params);
+  const result = await item.deleteItem(item1);
+  res.json({ result: result });
 };

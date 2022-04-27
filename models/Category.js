@@ -1,13 +1,43 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongodb = require("mongodb");
+const { client, database } = require("../mongoHelper.js");
+const categoriesCollection = database.collection("categories");
 
-const CategorySchema = new Schema({
+const Category = {
   name: { type: String, required: true },
   description: { type: String, required: true, maxlength: 200 },
-});
+};
 
-CategorySchema.virtual("url").get(() => {
-  return `/shop/categories/${this._id}`;
-});
+exports.getAllCategories = async () => {
+  await client.connect()
+  const categories = await categoriesCollection.find({}).toArray();
+  await client.close()
+  return categories;
+}
 
-module.exports = mongoose.model("Category", CategorySchema);
+exports.getCategory = async (parameters) => {
+  await client.connect();
+  const category = await categoriesCollection.findOne(parameters);
+  await client.close();
+  return category;
+};
+
+exports.newCategory= async (category) => {
+  await client.connect();
+  const result = await categoriesCollection.insertOne(category);
+  await client.close()
+  return result;
+};
+
+exports.editCategory = async (_id, category) => {
+  await client.connect();
+  const filter = { _id: _id };
+  const result = await categoriesCollection.updateOne(filter, category);
+  return result;
+};
+
+exports.deleteItem = async (category) => {
+  await client.connect()
+  const result = categoriesCollection.deleteOne(category);
+  await client.close()
+  return result;
+}
