@@ -9,7 +9,7 @@
 
 # front 
 - axios i react-query
-
+ 
 
 
 mvc
