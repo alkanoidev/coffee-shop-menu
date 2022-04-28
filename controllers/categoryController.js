@@ -1,6 +1,4 @@
-const { client, database } = require("../mongoHelper.js");
 const category = require("../models/category.js");
-const category = require("../models/Category.js");
 
 exports.categoryList = async (req, res) => {
   res.json({ categoryList: await category.getAllCategories() });

@@ -1,6 +1,6 @@
-const express = require("express")
-const router = express.Router()
-const categoryController = require("../controllers/categoryController")
+const express = require("express");
+const router = express.Router();
+const categoryController = require("../controllers/categoryController");
 
 router.get("/", categoryController.categoryList);
 
@@ -12,5 +12,4 @@ router.put("/category/update/:name", categoryController.editCategory);
 
 router.delete("/category/delete/:name", categoryController.deleteCategory);
 
-
-exports = router;
+module.exports = router;

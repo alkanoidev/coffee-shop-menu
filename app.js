@@ -6,6 +6,14 @@ const logger = require("morgan");
 const port = process.env.PORT || 3001;
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
+require("dotenv").config();
+const MONGO_URI = process.env.MONGO_URI;
+
+const client = new MongoClient(MONGO_URI);
+client.connect()
+const database = client.db("inventoryapplication");
+module.exports.database = database;
+// console.log(database);
 
 const itemRouter = require("./routes/itemRouter");
 const categoryRouter = require("./routes/categoryRouter");
@@ -18,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 // app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static(path.join(__dirname, "client", "build")));
+// app.use(express.static(path.join(__dirname, "client", "build"))); // production
 
 app.get("/", (req, res) => {
   res.redirect("/items");

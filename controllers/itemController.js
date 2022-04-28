@@ -1,9 +1,10 @@
-const { client, database } = require("../mongoHelper.js");
 const item = require("../models/Item.js");
 const category = require("../models/Category.js");
-
+const { ObjectId } = require("mongodb");
+ 
 exports.itemList = async (req, res) => {
-  res.json({ itemList: await item.getAllItems() });
+  const itemList = await item.getAllItems();
+  res.json({ itemList: itemList });
 };
 
 exports.item = async (req, res) => {
@@ -26,7 +27,7 @@ exports.editItem = async (req, res) => {
 };
 
 exports.deleteItem = async (req, res) => {
-  const item1 = await item.getItem(req.params);
-  const result = await item.deleteItem(item1);
+  const name = await item.getItem(req.params.name).name;
+  const result = await item.deleteItem({name: name});
   res.json({ result: result });
 };

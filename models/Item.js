@@ -1,5 +1,5 @@
 const mongodb = require("mongodb");
-const { client, database } = require("../mongoHelper.js");
+const { database } = require("../app.js");
 
 const Item = {
   name: { type: String, required: true },
@@ -11,36 +11,37 @@ const Item = {
 const itemsCollection = database.collection("items");
 
 exports.getAllItems = async () => {
-  await client.connect();
+  // client.connect();
   const itemList = await itemsCollection.find({}).toArray();
-  await client.close();
+  // client.close();
   return itemList;
 };
 
 exports.getItem = async (parameters) => {
-  await client.connect();
+  // client.connect();
   const item = await itemsCollection.findOne(parameters);
-  await client.close();
+  // client.close();
   return item;
 };
 
 exports.newItem = async (item) => {
-  await client.connect();
+  // client.connect();
   const result = await itemsCollection.insertOne(item);
-  await client.close()
+  // client.close();
   return result;
 };
 
 exports.editItem = async (_id, item) => {
-  await client.connect();
+  // client.connect();
   const filter = { _id: _id };
   const result = await itemsCollection.updateOne(filter, item);
+  // client.close();
   return result;
 };
 
 exports.deleteItem = async (item) => {
-  await client.connect()
-  const result = itemsCollection.deleteOne(item);
-  await client.close()
+  // client.connect();
+  const result = await itemsCollection.deleteOne(item);
+  // client.close();
   return result;
-}
+};
