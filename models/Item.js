@@ -19,7 +19,7 @@ exports.getAllItems = async () => {
 
 exports.getItem = async (parameters) => {
   // client.connect();
-  const item = await itemsCollection.findOne(parameters);
+  const item = itemsCollection.findOne(parameters);
   // client.close();
   return item;
 };
@@ -39,9 +39,9 @@ exports.editItem = async (_id, item) => {
   return result;
 };
 
-exports.deleteItem = async (item) => {
+exports.deleteItem = async (_id) => {
   // client.connect();
-  const result = await itemsCollection.deleteOne(item);
+  const result = await itemsCollection.deleteOne({_id: _id});
   // client.close();
   return result;
 };
