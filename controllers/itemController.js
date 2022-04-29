@@ -27,8 +27,8 @@ exports.editItem = async (req, res) => {
 };
 
 exports.deleteItem = async (req, res) => {
-  const _id = await item.getItem(req.params)._id;
-  console.log(await item.getItem(req.params));
+  const item1 = await item.getItem(req.params);
+  const _id = new ObjectId(item1._id);
   const result = await item.deleteItem(_id);
   res.json({ result: result });
 };
