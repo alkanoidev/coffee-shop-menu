@@ -26,14 +26,14 @@ export default function Items() {
     <Layout>
       <div className="flex justify-center p-0 sm:p-2 sm:justify-start flex-wrap w-full gap-2">
         {isLoading && <h1 className="text-brown text-2xl">Loading...</h1>}
-        {items.map((item) => (
+        {/* {items.map((item) => (
           <Item
             key={item._id}
             name={item.name}
             description={item.description}
             price={item.price}
           />
-        ))}
+        ))} */}
       </div>
     </Layout>
   );

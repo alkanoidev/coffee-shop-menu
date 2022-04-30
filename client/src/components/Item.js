@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Button from "../components/Button";
 
 export default function Item({ name, description, price }) {
   const handleDelete = () => {
@@ -20,21 +21,8 @@ export default function Item({ name, description, price }) {
           {price}
         </h2>
         <div>
-          <button
-            type="button"
-            className="text-white bg-brown focus:ring-4 focus:ring-amber-900 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-          >
-            Edit
-          </button>
-          <button
-            type="button"
-            className="text-white bg-brown focus:ring-4 focus:ring-amber-900 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-            onClick={() => {
-              handleDelete();
-            }}
-          >
-            Delete
-          </button>
+          <Button title="Edit" />
+          <Button title="Delete" onClick={handleDelete} />
         </div>
       </div>
     </div>

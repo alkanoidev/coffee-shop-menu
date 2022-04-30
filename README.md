@@ -3,7 +3,8 @@
 ## Todo:
 - show icon for category:
 - display items by category
-- fix delete database.connection undefined
+- fix categories thing
+- fix ip adress failed to connect
 
 ## design inspo
 [starbucks menu](https://www.starbucks.com/menu)

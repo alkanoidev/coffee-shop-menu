@@ -13,7 +13,7 @@ export default function Navbar() {
             className="mr-3 h-6 sm:h-9"
             alt="Flowbite Logo"
           />
-          <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+          <span className="self-center font-semibold whitespace-nowrap dark:text-white">
             Coffee Shop Inventory
           </span>
         </a>
@@ -84,7 +84,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#"
-                className="rounded transition block py-2 pr-4 pl-3 text-lg md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 "
+                className="rounded transition block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 "
                 aria-current="page"
               >
                 All Items
@@ -93,7 +93,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#"
-                className="rounded transition block py-2 pr-4 pl-3 text-lg md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0"
+                className="rounded transition block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0"
               >
                 Categories
               </a>
