@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Button from "../components/Button";
+import Button from "./Buttons/Button";
 
 export default function Item({ name, description, price }) {
   const handleDelete = () => {

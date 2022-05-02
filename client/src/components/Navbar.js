@@ -83,7 +83,7 @@ export default function Navbar() {
           <ul className="flex flex-col mt-4 md:flex-row w-full md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li>
               <a
-                href="#"
+                href="/"
                 className="rounded transition block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 "
                 aria-current="page"
               >
