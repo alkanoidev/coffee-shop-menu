@@ -3,8 +3,8 @@
 ## Todo:
 - show icon for category:
 - display items by category
-- fix categories thing
-- fix ip adress failed to connect
+- create new category
+- fixuj kada se pritisne na delete da se rerenderuje
 
 ## design inspo
 [starbucks menu](https://www.starbucks.com/menu)
