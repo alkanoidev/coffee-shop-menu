@@ -6,7 +6,7 @@ router.get("/", itemController.itemList);
 
 router.get("/item/:name", itemController.item);
 
-router.post("/item/new/:categoryId", itemController.newItem);
+router.post("/item/new/:category", itemController.newItem);
 
 router.put("/item/update/:name", itemController.editItem);
 

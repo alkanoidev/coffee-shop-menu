@@ -3,37 +3,36 @@ import Layout from "../components/Layout";
 import Button from "../components/Buttons/Button";
 import axios from "axios";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function NewItem() {
+  const navigate = useNavigate();
   const [item, setItem] = useState({
     name: "",
     price: null,
     description: "",
-    category: "",
+    categoryName: "",
   });
-  const [categoryId, setCategoryId] = useState("");
 
-  const getCategoryId = async () => {
-    await axios
-      .get(`http://localhost:3001/categories/category/${item.category}`)
-      .then((res) => {
-        setCategoryId(res.data.category._id);
-        console.log(categoryId);
-      });
-  };
+  // const getCategoryId = async () => {
+  //   await axios
+  //     .get(`http://localhost:3001/categories/category/${item.category}`)
+  //     .then((res) => {
+  //       setItem((prev) => ({ ...prev, categoryId: res.data.category._id }));
+  //     });
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getCategoryId();
-    // axios
-    //   .post(`http://localhost:3001/items/item/new/${categoryId}`, item)
-    //   .then(function (response) {
-    //     Navigate("/");
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    // getCategoryId();
+    axios
+      .post(`http://localhost:3001/items/item/new/${item.category}`, item)
+      .then((response) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleChange = (e) => {

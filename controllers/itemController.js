@@ -1,7 +1,7 @@
 const item = require("../models/Item.js");
 const category = require("../models/Category.js");
 const { ObjectId } = require("mongodb");
- 
+
 exports.itemList = async (req, res) => {
   const itemList = await item.getAllItems();
   res.json({ itemList: itemList });
@@ -13,9 +13,11 @@ exports.item = async (req, res) => {
 
 exports.newItem = async (req, res) => {
   const categoryName = req.params.category;
-  const categoryId = await category.getCategory({ name: categoryName })._id;
+  const myCategory = await category.getCategory({ name: categoryName });
+  const categoryId = new ObjectId(myCategory._id);
+  const myItem = { ...req.body, categoryId: categoryId };
 
-  const result = item.newItem({ ...req.body.item, categoryId });
+  const result = item.newItem(myItem);
   res.json({ result: result });
 };
 
