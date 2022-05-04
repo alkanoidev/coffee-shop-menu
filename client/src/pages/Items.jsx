@@ -33,7 +33,7 @@ export default function Items() {
           />
         ))}
         <div className="absolute bottom-4 right-4 z-10">
-          <NewItemFAB />
+          <NewItemFAB path="/newitem" />
         </div>
       </div>
     </Layout>

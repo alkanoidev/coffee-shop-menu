@@ -38,7 +38,6 @@ export default function NewItem() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setItem((prev) => ({ ...prev, [name]: value }));
-    console.log(item);
   };
 
   return (
@@ -55,7 +54,6 @@ export default function NewItem() {
             <input
               type="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="John"
               name="name"
               required
               onChange={(e) => {
@@ -74,7 +72,6 @@ export default function NewItem() {
               id="message"
               rows="4"
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
-              placeholder="Your message..."
               name="description"
               onChange={(e) => {
                 handleChange(e);
@@ -91,7 +88,6 @@ export default function NewItem() {
             <input
               type="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="John"
               required
               name="price"
               onChange={(e) => {
@@ -109,7 +105,6 @@ export default function NewItem() {
             <input
               type="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              placeholder="John"
               required
               name="category"
               onChange={(e) => {

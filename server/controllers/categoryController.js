@@ -9,8 +9,7 @@ exports.category = async (req, res) => {
 };
 
 exports.newCategory = async (req, res) => {
-  const categoryName = req.body.category;
-  const result = category.newCategory(req.body.category);
+  const result = category.newCategory(req.body);
   res.json({ result: result });
 };
 
