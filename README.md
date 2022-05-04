@@ -8,6 +8,7 @@
 - koristi .env za pathove
 - dropdown za filterovanje categorija na items stranici
 - pritiskom na kategoriju unutar categories stranice otvara se PORTAL sa opcijama za edit i delete
+   - kada se pritisne na edit h1 sa imenom postaje input:text
 - search functionality
 
 ## design inspo
