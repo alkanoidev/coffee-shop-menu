@@ -10,6 +10,7 @@
 - pritiskom na kategoriju unutar categories stranice otvara se PORTAL sa opcijama za edit i delete
    - kada se pritisne na edit h1 sa imenom postaje input:text
 - search functionality
+- fix rerender kada se unese nova kategorija
 
 ## design inspo
 

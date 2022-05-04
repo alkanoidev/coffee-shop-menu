@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import NewItemFAB from "../../components/Buttons/NewItemFAB";
 import Loader from "../../components/Loader/Loader";
-import NewCategoryModal from "../../components/NewCategoryModal";
+import NewCategoryModal from "../../components/NewCategory/NewCategoryModal";
 
 export default function Categories() {
   const [categoryList, setCategoryList] = useState([]);

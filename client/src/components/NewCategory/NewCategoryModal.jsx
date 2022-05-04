@@ -1,8 +1,8 @@
 import React, { useState, useLayoutEffect, useEffect } from "react";
-import Button from "./Buttons/Button";
+import Button from "../Buttons/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ReactPortal from "./ReactPortal";
+import ReactPortal from "../ReactPortal";
 import "./style.css";
 
 export default function NewCategoryModal({ handleClose, isOpen }) {
@@ -15,6 +15,7 @@ export default function NewCategoryModal({ handleClose, isOpen }) {
     axios
       .post("http://localhost:3001/categories/category/new/", category)
       .then(() => {
+        handleClose();
         navigate("/categories");
       })
       .catch((err) => {
