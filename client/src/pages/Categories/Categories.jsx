@@ -4,10 +4,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import NewItemFAB from "../../components/Buttons/NewItemFAB";
 import Loader from "../../components/Loader/Loader";
+import NewCategoryModal from "../../components/NewCategoryModal";
 
 export default function Categories() {
   const [categoryList, setCategoryList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -37,10 +39,22 @@ export default function Categories() {
             />
           ))}
           <div className="absolute bottom-4 right-4 z-10">
-            <NewItemFAB path="/newcategory" />
+            <NewItemFAB
+              onClick={() => {
+                setIsOpen(true);
+              }}
+            />
           </div>
         </div>
       </div>
+      {isOpen && (
+        <NewCategoryModal
+          isOpen={isOpen}
+          handleClose={() => {
+            setIsOpen(false);
+          }}
+        />
+      )}
     </Layout>
   );
 }

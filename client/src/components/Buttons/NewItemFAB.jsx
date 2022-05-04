@@ -1,15 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function NewItemFAB({ path }) {
+export default function NewItemFAB({ path, onClick }) {
   const navigate = useNavigate();
 
   return (
     <button
-      className="p-0 w-12 h-12 bg-brown rounded-full hover:bg-zinc-900 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none"
-      onClick={() => {
-        navigate(path);
-      }}
+      className="p-0 w-12 h-12 bg-brown rounded-full hover:bg-green-600 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none"
+      onClick={
+        path
+          ? () => {
+              navigate(path);
+            }
+          : onClick
+      }
     >
       <svg
         viewBox="0 0 20 20"
