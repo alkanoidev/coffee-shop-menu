@@ -6,7 +6,7 @@ export default function NewItemFAB({ path, onClick }) {
 
   return (
     <button
-      className="p-0 w-12 h-12 bg-brown rounded-full hover:bg-green-600 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none"
+      className="p-0 w-12 h-12 bg-brown rounded-full hover:ring-4 hover:ring-green-900 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none"
       onClick={
         path
           ? () => {

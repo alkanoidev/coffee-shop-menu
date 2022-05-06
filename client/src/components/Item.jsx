@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
 import Button from "./Buttons/Button";
+import "./style.css";
 
 export default function Item({ name, description, price }) {
   const handleDelete = () => {
     axios.delete(`http://localhost:3001/items/item/delete/${name}`);
   };
   return (
-    <div className="max-w-sm bg-brown1 rounded-lg border shadow-md">
+    <div className="item max-w-sm bg-brown1 rounded-lg border shadow-md">
       <div className="p-5 flex flex-col justify-between h-full">
         <a href="#">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-800">
@@ -18,7 +19,7 @@ export default function Item({ name, description, price }) {
           {description}
         </p>
         <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-800">
-          {price}
+          {price} €
         </h2>
         <div className="flex">
           <Button title="Edit" />

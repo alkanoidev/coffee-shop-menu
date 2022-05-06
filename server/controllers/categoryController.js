@@ -1,4 +1,5 @@
 const category = require("../models/category.js");
+const { ObjectId } = require("mongodb");
 
 exports.categoryList = async (req, res) => {
   res.json({ categoryList: await category.getAllCategories() });
@@ -22,6 +23,7 @@ exports.editCategory = async (req, res) => {
 
 exports.deleteCategory = async (req, res) => {
   const category1 = await category.getCategory(req.params);
-  const result = await category.deleteCategory(category1);
+  const _id = new ObjectId(category1._id);
+  const result = await category.deleteCategory(_id);
   res.json({ result: result });
 };

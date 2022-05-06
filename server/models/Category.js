@@ -36,10 +36,9 @@ exports.editCategory = async (_id, category) => {
   return result;
 };
 
-exports.deleteItem = async (_id, category) => {
+exports.deleteCategory = async (_id) => {
   // client.connect();
-  const filter = { _id: _id };
-  const result = categoriesCollection.deleteOne(category);
+  const result = categoriesCollection.deleteOne({ _id: _id });
   // client.close();
   return result;
 };

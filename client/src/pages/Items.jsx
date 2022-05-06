@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import axios from "axios";
 import NewItemFAB from "../components/Buttons/NewItemFAB";
 import Loader from "../components/Loader/Loader";
+import SearchAndFilter from "../components/SearchAndFilter/SearchAndFilter";
 
 export default function Items() {
   const [items, setItems] = useState([]);
@@ -22,7 +23,8 @@ export default function Items() {
 
   return (
     <Layout>
-      <div className="flex justify-center p-0 sm:p-2 sm:justify-start flex-wrap w-full gap-2">
+      <div className="flex justify-center p-0 sm:p-2 sm:justify-center flex-wrap w-full gap-2">
+        <SearchAndFilter />
         {isLoading && <Loader />}
         {items.map((item) => (
           <Item

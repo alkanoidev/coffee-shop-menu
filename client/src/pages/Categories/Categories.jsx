@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 import NewItemFAB from "../../components/Buttons/NewItemFAB";
 import Loader from "../../components/Loader/Loader";
 import NewCategoryModal from "../../components/NewCategory/NewCategoryModal";
+import CategoryDetailsModal from "../../components/CategoryDetailsModal";
 
 export default function Categories() {
   const [categoryList, setCategoryList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenCategoryDetails, setIsOpenCategoryDetails] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState({});
 
   useEffect(() => {
     const getCategories = async () => {
@@ -26,6 +29,11 @@ export default function Categories() {
     getCategories();
   }, []);
 
+  const openCategoryDetailsModal = (category) => {
+    setIsOpenCategoryDetails(true);
+    setCurrentCategory(category);
+  };
+
   return (
     <Layout>
       <div className="flex justify-center">
@@ -35,7 +43,9 @@ export default function Categories() {
             <Category
               key={category._id}
               categoryName={category.name}
-              icon={`${category.name}.png`}
+              onClick={() => {
+                openCategoryDetailsModal(category);
+              }}
             />
           ))}
           <div className="absolute bottom-4 right-4 z-10">
@@ -52,6 +62,16 @@ export default function Categories() {
           isOpen={isOpen}
           handleClose={() => {
             setIsOpen(false);
+          }}
+        />
+      )}
+
+      {isOpenCategoryDetails && (
+        <CategoryDetailsModal
+          isOpen={isOpenCategoryDetails}
+          name={currentCategory.name}
+          handleClose={() => {
+            setIsOpenCategoryDetails(false);
           }}
         />
       )}
