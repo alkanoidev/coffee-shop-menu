@@ -31,7 +31,12 @@ exports.newCategory = async (category) => {
 exports.editCategory = async (_id, category) => {
   // client.connect();
   const filter = { _id: _id };
-  const result = await categoriesCollection.updateOne(filter, category);
+  let result;
+  try {
+    result = await categoriesCollection.updateOne(filter, {$set: category});
+  } catch (e) {
+    result = { error: e };
+  }
   // client.close();
   return result;
 };

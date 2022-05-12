@@ -15,7 +15,7 @@ exports.newCategory = async (req, res) => {
 };
 
 exports.editCategory = async (req, res) => {
-  const newCategory = req.body.category;
+  const newCategory = req.body;
   const _id = await category.getCategory(req.params)._id;
   const result = await category.editCategory(_id, newCategory);
   res.json({ result: result });

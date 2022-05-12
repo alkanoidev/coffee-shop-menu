@@ -24,7 +24,9 @@ export default function Items() {
   return (
     <Layout>
       <div className="flex justify-center p-0 sm:p-2 sm:justify-center flex-wrap w-full gap-2">
-        <SearchAndFilter />
+        <div className="w-full my-5 flex justify-center items-center">
+          <SearchAndFilter />
+        </div>
         {isLoading && <Loader />}
         {items.map((item) => (
           <Item

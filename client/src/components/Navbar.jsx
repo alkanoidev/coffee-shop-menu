@@ -62,7 +62,7 @@ export default function Navbar() {
             <li>
               <a
                 href="/"
-                className="rounded transition block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 "
+                className="rounded text-lg transition block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 "
                 aria-current="page"
               >
                 Items
@@ -71,7 +71,7 @@ export default function Navbar() {
             <li>
               <a
                 href="/categories"
-                className="rounded transition block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0"
+                className="rounded transition text-lg block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0"
               >
                 Categories
               </a>

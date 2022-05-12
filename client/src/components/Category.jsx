@@ -1,4 +1,4 @@
-export default function Category({ categoryName, onClick }) {
+export default function Category({ categoryName, onClick, edit=false, onChange, newName }) {
   return (
     <div
       className="flex flex-col items-center gap-2 justify-center w-20"
@@ -11,7 +11,11 @@ export default function Category({ categoryName, onClick }) {
           className="w-10 h-10"
         />
       </div>
-      <h1 className="text-md text-center">{categoryName || "Category"}</h1>
+      {edit ? (
+        <input type="text" className="focus:outline-none focus:ring-1 focus:ring-brown p-1" value={newName} onChange={onChange} />
+      ) : (
+        <h1 className="text-md text-center">{categoryName || "Category"}</h1>
+      )}
     </div>
   );
 }

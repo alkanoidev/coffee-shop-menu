@@ -14,7 +14,6 @@
 - fix rerender kada se unese nova kategorija i kada se obrise
 - edit buttons functionality
 - lepsi navbar!!! za linkove kada se pritisne nes promeni
-- dodaj pozadinu na novu kategoriju formu kao item card!!!
 - refactor categoryDetailsModala
 
 ## design inspo
@@ -26,3 +25,5 @@
 - axios i react-query
 
 mvc
+
+# plant managment

@@ -21,7 +21,7 @@ export default function Item({ name, description, price }) {
         <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-800">
           {price} €
         </h2>
-        <div className="flex">
+        <div className="flex gap-2">
           <Button title="Edit" />
           <Button title="Delete" onClick={handleDelete} />
         </div>

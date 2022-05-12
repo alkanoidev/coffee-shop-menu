@@ -46,27 +46,29 @@ export default function NewCategoryModal({ handleClose, isOpen }) {
   return (
     <ReactPortal>
       <div className="modal flex flex-col items-center" id="modal">
-        <form className="p-1 w-full sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4">
-          <div>
-            <label
-              htmlFor="first_name"
-              className="block mb-2 text-sm font-medium text-white"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              name="name"
-              required
-              onChange={(e) => {
-                const { name, value } = e.target;
-                setCategory({ [name]: value });
-              }}
-            />
-          </div>
-          <Button title="Submit Category" onClick={handleSubmit} />
-        </form>
+        <div className="item max-w-sm bg-brown1 rounded-lg border shadow-md p-1 w-full sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4">
+          <form className="w-full p-5 flex flex-col items-center gap-6 justify-between h-full">
+            <div className="w-full">
+              <label
+                htmlFor="first_name"
+                className="block mb-2 text-sm font-medium text-black"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
+                name="name"
+                required
+                onChange={(e) => {
+                  const { name, value } = e.target;
+                  setCategory({ [name]: value });
+                }}
+              />
+            </div>
+            <Button title="Submit Category" onClick={handleSubmit} />
+          </form>
+        </div>
       </div>
     </ReactPortal>
   );

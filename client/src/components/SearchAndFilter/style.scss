@@ -1,0 +1,36 @@
+$green1: #d4e9e2;
+$green: #00704a;
+$transition: 0.2s all ease;
+
+.SearchAndFilter {
+  display: flex;
+  align-items: center;
+  border: 1px solid $green1;
+  border-radius: 10px;
+  transition: $transition;
+
+  button {
+    transition: $transition;
+    padding: 10px;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: $green1;
+      border: 1px solid $green;
+    }
+  }
+
+  div {
+    display: flex;
+    svg {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+    input{
+        &:focus{
+            outline: none;
+        }
+    }
+  }
+}
