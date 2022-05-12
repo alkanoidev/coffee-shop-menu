@@ -19,7 +19,7 @@ export default function SearchAndFilter() {
       </button>
       <div
         id="dropdown"
-        style={{ display: isDropdownOpened ? "flex" : "none" }}
+        style={{ display: isDropdownOpened ? "block" : "none" }}
       >
         <ul>
           <li>
