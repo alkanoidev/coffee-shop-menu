@@ -42,6 +42,9 @@ $transition: 0.2s all ease;
     z-index: 1;
     left: 0px;
     top: 50px;
+    display: block;
+    animation: growOut 300ms ease-in-out forwards;
+    transform-origin: top center;
     button {
       width: 100%;
       border-radius: 0px;
@@ -52,5 +55,16 @@ $transition: 0.2s all ease;
         background: $green1;
       }
     }
+  }
+}
+@keyframes growOut {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }

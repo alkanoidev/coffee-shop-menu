@@ -15,37 +15,40 @@ export default function SearchAndFilter() {
           setIsDropdownOpened((prev) => !prev);
           setIsFocused(true);
         }}
+        onBlur={() => {
+          setIsDropdownOpened(false);
+          setIsFocused(false);
+        }}
       >
         All Categories
       </button>
       <div className="inline-block">
-        <div
-          id="dropdown"
-          style={{ display: isDropdownOpened ? "block" : "none" }}
-        >
-          <ul>
-            <li>
-              <button className="category" type="button">
-                Mockups
-              </button>
-            </li>
-            <li>
-              <button className="category" type="button">
-                Templates
-              </button>
-            </li>
-            <li>
-              <button className="category" type="button">
-                Design
-              </button>
-            </li>
-            <li>
-              <button className="category" type="button">
-                Logos
-              </button>
-            </li>
-          </ul>
-        </div>
+        {isDropdownOpened && (
+          <div id="dropdown">
+            <ul>
+              <li>
+                <button type="button">
+                  Mockups
+                </button>
+              </li>
+              <li>
+                <button type="button">
+                  Templates
+                </button>
+              </li>
+              <li>
+                <button type="button">
+                  Design
+                </button>
+              </li>
+              <li>
+                <button type="button">
+                  Logos
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
         <div>
           <svg
             className="w-5 h-5 text-zinc-700"
