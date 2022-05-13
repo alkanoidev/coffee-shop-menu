@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 export default function Navbar() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <nav className="rounded rounded-t-none rounded-r-none bg-brown border-gray-200 px-2 sm:px-5 py-2.5 w-full">
@@ -23,7 +23,7 @@ export default function Navbar() {
               setCollapsed((prev) => !prev);
             }}
             type="button"
-            className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden"
           >
             <span className="sr-only">Open main menu</span>
             <svg

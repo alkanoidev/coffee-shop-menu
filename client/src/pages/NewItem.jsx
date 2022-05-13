@@ -43,7 +43,7 @@ export default function NewItem() {
   return (
     <Layout>
       <div className="flex flex-col items-center">
-        <form className="p-1 w-full sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4">
+        <form className="p-1 w-11/12 sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4">
           <div>
             <label
               htmlFor="first_name"
