@@ -2,7 +2,6 @@
 
 ## Todo:
 
-- show icon for category: u itemu
 - organize paths!!!!
 - search functionality
   - dropdown za kategorije
@@ -10,6 +9,7 @@
 - lepsi navbar!!! za linkove kada se pritisne nes promeni
 - edit buttons functionality
 - kada se pritisne edit u itemu sav tekst postaje input:text...
+- u new item category da se bira pomocu dropdown
 
 ## design inspo
 
