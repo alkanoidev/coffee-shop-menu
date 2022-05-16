@@ -90,9 +90,14 @@ export default function NewItem({ isOpen, handleClose }) {
             />
           </div>
           <div>
-            
+            <label
+              htmlFor="first_name"
+              className="block mb-2 text-sm font-medium text-gray-900 "
+            >
+              Select a Category
+            </label>
             <Dropdown
-              buttonTitle="Category"
+              buttonTitle="Select >"
               items={categories}
               setIsFocused={() => {}}
             />

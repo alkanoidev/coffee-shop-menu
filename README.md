@@ -9,7 +9,7 @@
 - lepsi navbar!!! za linkove kada se pritisne nes promeni
 - edit buttons functionality
 - kada se pritisne edit u itemu sav tekst postaje input:text...
-- u new item category da se bira pomocu dropdown
+- fetch categories inside ITEMS and then pass to Dropdowns
 
 ## design inspo
 
