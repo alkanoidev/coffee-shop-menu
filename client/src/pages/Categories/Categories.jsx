@@ -50,6 +50,7 @@ export default function Categories() {
           ))}
           <div className="absolute bottom-4 right-4 z-10">
             <NewItemFAB
+              path="/"
               onClick={() => {
                 setIsOpen(true);
               }}

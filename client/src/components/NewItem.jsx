@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import Layout from "../components/Layout";
-import Button from "../components/Buttons/Button";
+import React, { useEffect, useState } from "react";
+import Button from "./Buttons/Button";
 import axios from "axios";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ReactPortal from "./ReactPortal";
+import Dropdown from "./Dropdown/Dropdown";
 
-export default function NewItem() {
+export default function NewItem({ isOpen, handleClose }) {
   const navigate = useNavigate();
   const [item, setItem] = useState({
     name: "",
@@ -13,22 +13,15 @@ export default function NewItem() {
     description: "",
     categoryName: "",
   });
-
-  // const getCategoryId = async () => {
-  //   await axios
-  //     .get(`http://localhost:3001/categories/category/${item.category}`)
-  //     .then((res) => {
-  //       setItem((prev) => ({ ...prev, categoryId: res.data.category._id }));
-  //     });
-  // };
+  const [categories, setCategories] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // getCategoryId();
     axios
       .post(`http://localhost:3001/items/item/new/${item.category}`, item)
       .then((response) => {
         navigate("/");
+        handleClose();
       })
       .catch((error) => {
         console.log(error);
@@ -40,10 +33,45 @@ export default function NewItem() {
     setItem((prev) => ({ ...prev, [name]: value }));
   };
 
+  useEffect(() => {
+    const closeOnEscapeKey = (e) => (e.key === "Escape" ? handleClose() : null);
+    const closeOnClickOutside = (e) => {
+      if (e.target.id == "modal") {
+        handleClose();
+      }
+    };
+    document.body.addEventListener("keydown", closeOnEscapeKey);
+    if (isOpen) {
+      document.body.addEventListener("click", closeOnClickOutside);
+    }
+
+    return () => {
+      document.body.removeEventListener("keydown", closeOnEscapeKey);
+      document.body.removeEventListener("click", closeOnClickOutside);
+    };
+  }, [handleClose]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      await axios
+        .get("http://localhost:3001/categories/")
+        .then((res) => {
+          const temp = res.data.categoryList.map((item) => ({
+            title: item.name,
+          }));
+          setCategories(temp);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getCategories();
+  }, []);
+
   return (
-    <Layout>
-      <div className="flex flex-col items-center">
-        <form className="p-1 w-11/12 sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4">
+    <ReactPortal>
+      <div className="modal flex flex-col items-center" id="modal">
+        <form className="item max-w-sm bg-brown1 rounded-lg border shadow-md p-3 w-11/12 sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4">
           <div>
             <label
               htmlFor="first_name"
@@ -59,6 +87,14 @@ export default function NewItem() {
               onChange={(e) => {
                 handleChange(e);
               }}
+            />
+          </div>
+          <div>
+            
+            <Dropdown
+              buttonTitle="Category"
+              items={categories}
+              setIsFocused={() => {}}
             />
           </div>
           <div>
@@ -95,26 +131,10 @@ export default function NewItem() {
               }}
             />
           </div>
-          <div>
-            <label
-              htmlFor="first_name"
-              className="block mb-2 text-sm font-medium text-gray-900 "
-            >
-              Category
-            </label>
-            <input
-              type="text"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              required
-              name="category"
-              onChange={(e) => {
-                handleChange(e);
-              }}
-            />
-          </div>
-          <Button title="Submit Item" onClick={handleSubmit} />
+
+          <Button title="Submit Item" styles="mt-6" onClick={handleSubmit} />
         </form>
       </div>
-    </Layout>
+    </ReactPortal>
   );
 }

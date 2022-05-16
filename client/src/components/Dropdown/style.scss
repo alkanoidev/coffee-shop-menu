@@ -1,0 +1,57 @@
+$green1: #d4e9e2;
+$green: #00704a;
+$transition: 0.2s all ease;
+.button1 {
+  transition: $transition;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: $green1;
+    border: 1px solid $green;
+  }
+}
+.dropdown{
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  transition: $transition;
+  position: relative;
+}
+
+#dropdown {
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 130px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: 0px;
+  top: 50px;
+  display: block;
+  animation: growOut 300ms ease-in-out forwards;
+  transform-origin: top center;
+  button {
+    width: 100%;
+    border-radius: 0px;
+    transition: $transition;
+    border-radius: 5px;
+    border: none;
+    &:hover {
+      background: $green1;
+    }
+  }
+}
+
+@keyframes growOut {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
