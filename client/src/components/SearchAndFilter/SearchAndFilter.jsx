@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import "./style.scss";
 
-export default function SearchAndFilter() {
-  const [isDropdownOpened, setIsDropdownOpened] = useState(false);
+export default function SearchAndFilter({
+  categories,
+}) {
   const [isFocused, setIsFocused] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
 
   return (
     <div
@@ -13,13 +15,10 @@ export default function SearchAndFilter() {
     >
       <Dropdown
         buttonTitle="All Categories"
-        items={[
-          {
-            title: "Category1",
-          },
-          { title: "Hardcoded" },
-        ]}
+        items={categories}
         setIsFocused={setIsFocused}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
       />
       <div>
         <svg

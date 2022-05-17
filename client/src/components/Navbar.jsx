@@ -6,8 +6,8 @@ export default function Navbar() {
 
   return (
     <nav className="rounded rounded-t-none rounded-r-none bg-brown border-gray-200 px-2 sm:px-5 py-2.5 w-full">
-      <div className="flex flex-wrap justify-between items-center w-full">
-        <a href="/" className="flex items-center">
+      <div className="flex flex-wrap justify-start items-center w-full">
+        <a href="/" className="flex items-center pr-3">
           <img
             src="icons/logo.png"
             className="mr-3 h-6 sm:h-9"
@@ -62,7 +62,7 @@ export default function Navbar() {
             <li>
               <a
                 href="/"
-                className="rounded text-lg transition block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 "
+                className="rounded text-lg transition block py-2 pr-4 pl-3 md:px-2 text-white border-b hover:text-brown1 md:border-0 md:p-0 "
                 aria-current="page"
               >
                 Items
@@ -71,7 +71,7 @@ export default function Navbar() {
             <li>
               <a
                 href="/categories"
-                className="rounded transition text-lg block py-2 pr-4 pl-3 md:px-2 focus:text-white text-gray-200 border-b focus:bg-brown1  border-gray-500 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0"
+                className="rounded transition text-lg block py-2 pr-4 pl-3 md:px-2 text-white border-b hover:text-brown1  md:border-0  md:p-0"
               >
                 Categories
               </a>

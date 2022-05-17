@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import ReactPortal from "./ReactPortal";
 import Dropdown from "./Dropdown/Dropdown";
 
-export default function NewItem({ isOpen, handleClose }) {
+export default function NewItemModal({ isOpen, handleClose }) {
   const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [item, setItem] = useState({
     name: "",
     price: null,
@@ -18,7 +19,7 @@ export default function NewItem({ isOpen, handleClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:3001/items/item/new/${item.category}`, item)
+      .post(`http://localhost:3001/items/item/new/${item.categoryName}`, item)
       .then((response) => {
         navigate("/");
         handleClose();
@@ -35,21 +36,17 @@ export default function NewItem({ isOpen, handleClose }) {
 
   useEffect(() => {
     const closeOnEscapeKey = (e) => (e.key === "Escape" ? handleClose() : null);
-    const closeOnClickOutside = (e) => {
-      if (e.target.id == "modal") {
-        handleClose();
-      }
-    };
     document.body.addEventListener("keydown", closeOnEscapeKey);
-    if (isOpen) {
-      document.body.addEventListener("click", closeOnClickOutside);
-    }
 
     return () => {
       document.body.removeEventListener("keydown", closeOnEscapeKey);
-      document.body.removeEventListener("click", closeOnClickOutside);
     };
   }, [handleClose]);
+
+  useEffect(() => {
+    setItem((prev) => ({ ...prev, categoryName: selectedCategory}));
+  }, [selectedCategory])
+  
 
   useEffect(() => {
     const getCategories = async () => {
@@ -59,7 +56,7 @@ export default function NewItem({ isOpen, handleClose }) {
           const temp = res.data.categoryList.map((item) => ({
             title: item.name,
           }));
-          setCategories(temp);
+          setCategories([...temp]);
         })
         .catch((err) => {
           console.log(err);
@@ -70,8 +67,17 @@ export default function NewItem({ isOpen, handleClose }) {
 
   return (
     <ReactPortal>
-      <div className="modal flex flex-col items-center" id="modal">
-        <form className="item max-w-sm bg-brown1 rounded-lg border shadow-md p-3 w-11/12 sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4">
+      <div
+        className="modal flex flex-col items-center"
+        onClick={() => {
+          handleClose();
+        }}
+      >
+        <form
+          id="modal"
+          onClick={(e) => e.stopPropagation()}
+          className="item max-w-sm bg-brown1 rounded-lg border shadow-md p-3 w-11/12 sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4"
+        >
           <div>
             <label
               htmlFor="first_name"
@@ -100,6 +106,9 @@ export default function NewItem({ isOpen, handleClose }) {
               buttonTitle="Select >"
               items={categories}
               setIsFocused={() => {}}
+              className="buttonBg"
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
             />
           </div>
           <div>

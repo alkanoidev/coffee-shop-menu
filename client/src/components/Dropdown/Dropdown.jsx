@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 
-export default function Dropdown({ buttonTitle, items, setIsFocused }) {
+export default function Dropdown({
+  buttonTitle,
+  items,
+  setIsFocused,
+  className,
+  selectedCategory,
+  setSelectedCategory,
+}) {
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
+  const [selected, setSelected] = useState(selectedCategory);
+
   return (
     <div className="dropdown">
       <button
         onClick={(e) => {
-          e.preventDefault()
+          e.preventDefault();
           setIsDropdownOpened((prev) => !prev);
           setIsFocused(true);
         }}
-        onBlur={() => {
-          setIsDropdownOpened(false);
-          setIsFocused(false);
-        }}
-        className="button1"
+        className={`${className == "" ? "button1" : className}`}
       >
-        {buttonTitle}
+        {selectedCategory}
       </button>
       <div className="inline-block">
         {isDropdownOpened && (
@@ -25,7 +30,15 @@ export default function Dropdown({ buttonTitle, items, setIsFocused }) {
             <ul>
               {items.map((item, index) => (
                 <li key={index}>
-                  <button className="button1">{item.title}</button>
+                  <button
+                    className="button1"
+                    onClick={() => {
+                      setSelectedCategory(item.title);
+                      setIsDropdownOpened(false);
+                    }}
+                  >
+                    {item.title}
+                  </button>
                 </li>
               ))}
             </ul>
