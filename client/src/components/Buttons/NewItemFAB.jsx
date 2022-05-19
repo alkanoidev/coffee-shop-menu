@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./style.scss";
 
 export default function NewItemFAB({ path, onClick }) {
   const navigate = useNavigate();
 
   return (
     <button
-      className="p-0 w-12 h-12 bg-brown rounded-full hover:ring-4 hover:ring-green-900 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none"
+      className="FAB"
       onClick={
         path != "/"
           ? () => {
