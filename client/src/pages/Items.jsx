@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Item from "../components/Item/Item";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import axios from "axios";
 import NewItemFAB from "../components/Buttons/NewItemFAB";
 import Loader from "../components/Loader/Loader";
 import SearchAndFilter from "../components/SearchAndFilter/SearchAndFilter";
-import NewItem from "../components/NewItemModal";
+import NewItem from "../components/NewItemModal/NewItemModal";
 
 export default function Items() {
   const [items, setItems] = useState([]);

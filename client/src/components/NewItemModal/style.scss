@@ -1,0 +1,33 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 999;
+  padding: 40px 20px 20px;
+
+  @apply flex flex-col items-center;
+
+  form {
+    @apply max-w-sm bg-brown1 rounded-lg border shadow-md p-3 
+        w-11/12 sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4;
+    div {
+      label {
+        @apply block mb-2 text-sm font-medium text-gray-900;
+      }
+      input {
+        @apply bg-gray-50 border border-gray-300 text-gray-900 
+                text-sm rounded-lg block w-full p-2.5;
+      }
+      textarea {
+        @apply block p-2.5 w-full text-sm text-gray-900
+           bg-gray-50 rounded-lg border border-gray-300;
+      }
+    }
+  }
+}

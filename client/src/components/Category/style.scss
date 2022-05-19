@@ -1,8 +1,11 @@
 .Category {
   @apply flex flex-col items-center gap-2 justify-center w-20;
   div {
-    @apply transition w-20 h-20 rounded-full bg-gradient-to-r from-brown to-green-600 grid 
-    place-content-center text-5xl text-zinc-900 hover:scale-110 hover:cursor-pointer;
+    @apply transition w-20 h-20 rounded-full bg-gradient-to-r from-brown to-green-600 flex 
+    justify-center items-center text-5xl text-zinc-900 hover:scale-110 hover:cursor-pointer;
+    img {
+      @apply w-10 h-10;
+    }
   }
   input {
     @apply focus:outline-none focus:ring-1 focus:ring-brown p-1;

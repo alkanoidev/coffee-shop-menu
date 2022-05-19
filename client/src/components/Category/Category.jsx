@@ -10,11 +10,7 @@ export default function Category({
   return (
     <div className="Category" onClick={onClick}>
       <div>
-        <img
-          src={`/src/pages/Categories/icons/${categoryName}.png`}
-          alt=""
-          className="w-10 h-10"
-        />
+        <img src={`/src/pages/Categories/icons/${categoryName}.png`} alt="" />
       </div>
       {edit ? (
         <input type="text" value={newName} onChange={onChange} />
