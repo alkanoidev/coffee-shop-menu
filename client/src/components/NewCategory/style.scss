@@ -1,0 +1,31 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 999;
+  padding: 40px 20px 20px;
+
+  @apply flex flex-col items-center;
+  .card{
+    @apply max-w-sm bg-brown1 rounded-lg border shadow-md p-1 w-full sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4;
+    form{
+      @apply w-full p-5 flex flex-col items-center gap-6 justify-between h-full;
+      div{
+        @apply w-full;
+        label{
+          @apply block mb-2 text-sm font-medium text-black;
+        }
+        input{
+          @apply w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm 
+          rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactPortal from "./ReactPortal";
-import "./NewCategory/style.css";
+import "./NewCategory/style.scss";
 import Button from "./Buttons/Button";
 import Category from "./Category";
 import axios from "axios";

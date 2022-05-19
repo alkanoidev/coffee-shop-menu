@@ -3,7 +3,7 @@ import Button from "../Buttons/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ReactPortal from "../ReactPortal";
-import "./style.css";
+import "./style.scss";
 
 export default function NewCategoryModal({ handleClose, isOpen }) {
   const [category, setCategory] = useState({
@@ -45,19 +45,17 @@ export default function NewCategoryModal({ handleClose, isOpen }) {
 
   return (
     <ReactPortal>
-      <div className="modal flex flex-col items-center" id="modal">
-        <div className="item max-w-sm bg-brown1 rounded-lg border shadow-md p-1 w-full sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-2/6 2xl:w-1/6 flex flex-col gap-4">
-          <form className="w-full p-5 flex flex-col items-center gap-6 justify-between h-full">
-            <div className="w-full">
+      <div className="modal" id="modal">
+        <div className="card item">
+          <form>
+            <div>
               <label
                 htmlFor="first_name"
-                className="block mb-2 text-sm font-medium text-black"
               >
                 Name
               </label>
               <input
                 type="text"
-                className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 "
                 name="name"
                 required
                 onChange={(e) => {
