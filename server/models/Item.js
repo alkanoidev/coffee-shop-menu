@@ -1,4 +1,5 @@
 const mongodb = require("mongodb");
+const { ObjectId } = require("mongodb");
 const { database } = require("../app.js");
 
 const Item = {
@@ -33,15 +34,15 @@ exports.newItem = async (item) => {
 
 exports.editItem = async (_id, item) => {
   // client.connect();
-  const filter = { _id: _id };
-  const result = await itemsCollection.updateOne(filter, item);
+  let result;
+  result = await itemsCollection.updateOne({ _id: new ObjectId(_id) }, { $set: item });
   // client.close();
   return result;
 };
 
 exports.deleteItem = async (_id) => {
   // client.connect();
-  const result = await itemsCollection.deleteOne({_id: _id});
+  const result = await itemsCollection.deleteOne({ _id: _id });
   // client.close();
   return result;
 };

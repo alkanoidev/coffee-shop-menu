@@ -5,17 +5,17 @@
 - organize paths!!!!
 - search functionality
 - fix rerender kada se unese nova kategorija i kada se obrise
-- lepsi navbar!!! za linkove kada se pritisne nes promeni
-- edit buttons functionality
 - code refactor
+- fix edit button positioning inside item.js
+
+### backend
+
+- refactor
+- use try catch
 
 ## design inspo
 
 [starbucks menu](https://www.starbucks.com/menu)
-
-# front
-
-- axios i react-query
 
 mvc
 

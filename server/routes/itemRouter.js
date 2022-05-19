@@ -8,7 +8,7 @@ router.get("/item/:name", itemController.item);
 
 router.post("/item/new/:category", itemController.newItem);
 
-router.put("/item/update/:name", itemController.editItem);
+router.post("/item/update/:name", itemController.editItem);
 
 router.delete("/item/delete/:name", itemController.deleteItem);
 

@@ -22,10 +22,15 @@ exports.newItem = async (req, res) => {
 };
 
 exports.editItem = async (req, res) => {
-  const newItem = req.body.item;
-  const _id = await item.getItem(req.params)._id;
-  const result = await item.editItem(_id, newItem);
-  res.json({ result: result });
+  let result;
+  const newItem = req.body;
+  await item.getItem(req.params).then((res) => {
+    item.editItem(res._id, newItem, (err, res) => {
+      if (err) result = err;
+      result = res;
+    });
+  });
+  res.json(result);
 };
 
 exports.deleteItem = async (req, res) => {

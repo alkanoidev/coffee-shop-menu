@@ -62,7 +62,7 @@ export default function CategoryDetailsModal({ name, isOpen, handleClose }) {
                 onClick={async () => {
                   if (toggleEdit) {
                     await axios
-                      .put(
+                      .post(
                         `http://localhost:3001/categories/category/update/${name}`,
                         { name: newName }
                       )

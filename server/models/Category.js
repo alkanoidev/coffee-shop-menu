@@ -14,9 +14,9 @@ exports.getAllCategories = async () => {
   return categories;
 };
 
-exports.getCategory = async (parameters) => {
+exports.getCategory = (parameters) => {
   // client.connect();
-  const category = await categoriesCollection.findOne(parameters);
+  const category = categoriesCollection.findOne(parameters);
   // client.close();
   return category;
 };
@@ -30,20 +30,24 @@ exports.newCategory = async (category) => {
 
 exports.editCategory = async (_id, category) => {
   // client.connect();
-  const filter = { _id: _id };
   let result;
-  try {
-    result = await categoriesCollection.updateOne(filter, {$set: category});
-  } catch (e) {
-    result = { error: e };
-  }
+  result = await categoriesCollection.updateOne(
+    { _id: new mongodb.ObjectId(_id) },
+    { $set: category },
+    (err, res) => {
+      if (err) result = err;
+      result = res;
+    }
+  );
   // client.close();
   return result;
 };
 
 exports.deleteCategory = async (_id) => {
   // client.connect();
-  const result = categoriesCollection.deleteOne({ _id: _id });
+  const result = categoriesCollection.deleteOne({
+    _id: new mongodb.ObjectId(_id),
+  });
   // client.close();
   return result;
 };

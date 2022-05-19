@@ -25,6 +25,17 @@ export default function Item({ name, description, price }) {
   const handleDelete = () => {
     axios.delete(`http://localhost:3001/items/item/delete/${name}`);
   };
+  const handleEdit = async () => {
+    await axios
+      .post(`http://localhost:3001/items/item/update/${name}`, item)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    setEditMode(false);
+  };
   return (
     <div className="item max-w-sm bg-brown1 rounded-lg border shadow-md">
       <div className="p-5 flex flex-col justify-between gap-5 h-full">
@@ -62,7 +73,13 @@ export default function Item({ name, description, price }) {
                 name="price"
               />
             </div>
-            <Button title="Edit" />
+            <Button
+              title="Edit"
+              onClick={(e) => {
+                e.preventDefault();
+                handleEdit();
+              }}
+            />
           </form>
         ) : (
           <>
