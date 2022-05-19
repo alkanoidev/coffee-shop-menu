@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactPortal from "./ReactPortal";
 import "./NewCategory/style.scss";
 import Button from "./Buttons/Button";
-import Category from "./Category";
+import Category from "./Category/Category";
 import axios from "axios";
 
 export default function CategoryDetailsModal({ name, isOpen, handleClose }) {

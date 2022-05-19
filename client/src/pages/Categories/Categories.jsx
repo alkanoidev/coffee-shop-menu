@@ -1,4 +1,4 @@
-import Category from "../../components/Category";
+import Category from "../../components/Category/Category";
 import Layout from "../../components/Layout";
 import axios from "axios";
 import { useEffect, useState } from "react";
