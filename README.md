@@ -8,7 +8,7 @@
 - code refactor
 - fix edit button positioning inside item.js
 - organizuj po kategorijama i tako izlistaj sve!!!
-
+- animacije!!!!!!!!!
 - routing kada se otvori modal
 
 ### backend
