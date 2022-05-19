@@ -8,8 +8,6 @@
 - organizuj po kategorijama i tako izlistaj sve!!!
 - animacije!!!!!!!!!
 - routing kada se otvori modal
-- tailwind abstraction
-- ilustracije neke
 - [ilustracija - prepravi boje](https://www.getillustrations.com/single-illustration/relax-chill-sitting-drink-beverage-home-armchair-furniture-plant-decoration)
 
 ### backend
