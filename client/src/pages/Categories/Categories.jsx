@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import NewItemFAB from "../../components/Buttons/NewItemFAB";
 import Loader from "../../components/Loader/Loader";
 import NewCategoryModal from "../../components/NewCategory/NewCategoryModal";
-import CategoryDetailsModal from "../../components/CategoryDetailsModal";
+import CategoryDetailsModal from "../../components/CategoryDetailsModal/CategoryDetailsModal";
 
 export default function Categories() {
   const [categoryList, setCategoryList] = useState([]);
