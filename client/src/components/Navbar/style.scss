@@ -1,6 +1,36 @@
 nav {
   @apply rounded rounded-t-none rounded-r-none bg-brown border-gray-200 px-2 sm:px-5 py-2.5 w-full;
-  div {
+  .cont {
     @apply flex flex-wrap justify-between sm:justify-start items-center w-full;
+    a {
+      @apply flex items-center pr-3;
+      img {
+        @apply mr-3 h-6 sm:h-9;
+      }
+      span {
+        @apply self-center text-white font-semibold whitespace-nowrap;
+      }
+    }
+    .hamburger {
+      @apply flex md:order-2;
+      button {
+        @apply inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden;
+        svg {
+          @apply w-6 h-6;
+        }
+        .svg1 {
+          @apply hidden w-6 h-6;
+        }
+      }
+    }
+    .links {
+      @apply justify-between items-center w-full md:flex md:w-auto md:order-1;
+      ul {
+        @apply flex flex-col ml-4 mt-4 md:flex-row w-full md:space-x-8 md:mt-0 md:text-sm md:font-medium;
+        li {
+          @apply rounded uppercase font-bold transition block py-2 pr-4 pl-3 md:px-2 text-white hover:text-brown1 md:p-0;
+        }
+      }
+    }
   }
 }

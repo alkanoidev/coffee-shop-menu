@@ -7,28 +7,20 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className="">
-        <a href="/" className="flex items-center pr-3">
-          <img
-            src="icons/logo.png"
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-white font-semibold whitespace-nowrap">
-            Coffee Shop Inventory
-          </span>
+      <div className="cont">
+        <a href="/">
+          <img src="icons/logo.png" alt="Flowbite Logo" />
+          <span>Coffee Shop Inventory</span>
         </a>
-        <div className="flex md:order-2">
+        <div className="hamburger">
           <button
             onClick={() => {
               setCollapsed((prev) => !prev);
             }}
             type="button"
-            className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden"
           >
             <span className="sr-only">Open main menu</span>
             <svg
-              className="w-6 h-6"
               fill="white"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +32,7 @@ export default function Navbar() {
               ></path>
             </svg>
             <svg
-              className="hidden w-6 h-6"
+              className="svg1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -56,14 +48,14 @@ export default function Navbar() {
         <div
           className={`${
             !collapsed ? "flex" : "hidden"
-          } justify-between items-center w-full md:flex md:w-auto md:order-1`}
+
+          } links `}
           id="mobile-menu-3"
         >
-          <ul className="flex flex-col mt-4 md:flex-row w-full md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+          <ul className="">
             <li>
               <a
                 href="/"
-                className="rounded uppercase text-lg transition block py-2 pr-4 pl-3 md:px-2 text-white hover:text-brown1 md:p-0 "
                 aria-current="page"
               >
                 Items
@@ -72,7 +64,6 @@ export default function Navbar() {
             <li>
               <a
                 href="/categories"
-                className="rounded uppercase text-lg block py-2 pr-4 pl-3 md:px-2 text-white hover:text-brown1 md:p-0"
               >
                 Categories
               </a>

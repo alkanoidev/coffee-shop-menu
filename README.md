@@ -1,4 +1,4 @@
-# Coffee Shop Inventory
+# Coffee Shop Menu
 
 ## Todo:
 
@@ -7,7 +7,8 @@
 - fix rerender kada se unese nova kategorija i kada se obrise
 - code refactor
 - fix edit button positioning inside item.js
-- display category inside ITEM.js somehow
+- organizuj po kategorijama i tako izlistaj sve!!!
+
 - routing kada se otvori modal
 
 ### backend
