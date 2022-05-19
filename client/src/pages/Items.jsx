@@ -40,7 +40,7 @@ export default function Items() {
 
   return (
     <Layout>
-      <div className="flex justify-center p-2 sm:p-2 sm:justify-center flex-wrap w-full gap-2">
+      <div className="flex justify-center p-2 sm:p-2 sm:justify-center flex-wrap items-stretch w-full gap-6">
         <div className="w-full my-5 flex justify-center items-center">
           <SearchAndFilter categories={categories} />
         </div>

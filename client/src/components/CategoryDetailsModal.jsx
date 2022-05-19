@@ -6,7 +6,7 @@ import Category from "./Category";
 import axios from "axios";
 
 export default function CategoryDetailsModal({ name, isOpen, handleClose }) {
-  const [toggleEdit, setToggleEdit] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const [newName, setNewName] = useState(name);
 
   const handleChange = (e) => {
@@ -50,7 +50,7 @@ export default function CategoryDetailsModal({ name, isOpen, handleClose }) {
           <div className="p-5 flex flex-col items-center gap-6 justify-between h-full">
             <Category
               categoryName={name}
-              edit={toggleEdit}
+              edit={editMode}
               onChange={(e) => {
                 handleChange(e);
               }}
@@ -60,7 +60,7 @@ export default function CategoryDetailsModal({ name, isOpen, handleClose }) {
               <Button
                 title="Edit"
                 onClick={async () => {
-                  if (toggleEdit) {
+                  if (editMode) {
                     await axios
                       .post(
                         `http://localhost:3001/categories/category/update/${name}`,
@@ -68,12 +68,14 @@ export default function CategoryDetailsModal({ name, isOpen, handleClose }) {
                       )
                       .then((res) => {
                         console.log(res.data);
+                        setEditMode(false);
+                        handleClose();
                       })
                       .catch((err) => {
                         console.log(err);
                       });
                   } else {
-                    setToggleEdit(true);
+                    setEditMode(true);
                   }
                 }}
               />
