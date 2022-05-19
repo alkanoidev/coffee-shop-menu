@@ -35,6 +35,7 @@ export default function Dropdown({
                     onClick={() => {
                       setSelectedCategory(item.title);
                       setIsDropdownOpened(false);
+                      setIsFocused(false);
                     }}
                   >
                     {item.title}

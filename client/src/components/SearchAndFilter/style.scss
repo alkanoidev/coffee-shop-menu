@@ -9,6 +9,8 @@ $transition: 0.2s all ease;
   border-radius: 10px;
   transition: $transition;
   position: relative;
+  @apply bg-brown1;
+
   button {
     transition: $transition;
     padding: 10px;
@@ -31,7 +33,7 @@ $transition: 0.2s all ease;
       &:focus {
         outline: none;
       }
+      @apply bg-brown1;
     }
   }
-
 }
