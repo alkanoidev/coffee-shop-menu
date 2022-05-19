@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Item from "../components/Item";
+import Item from "../components/Item/Item";
 import Layout from "../components/Layout";
 import axios from "axios";
 import NewItemFAB from "../components/Buttons/NewItemFAB";

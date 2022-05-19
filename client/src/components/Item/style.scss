@@ -1,0 +1,40 @@
+.item {
+  width: 400px;
+  @apply p-5 bg-brown1 rounded-lg border shadow-md;
+  .content {
+    @apply flex flex-col justify-between gap-5 h-full;
+    div {
+      a {
+        h5 {
+          @apply mb-2 text-2xl font-bold tracking-tight text-gray-800;
+        }
+      }
+      p {
+        @apply mb-3 max-h-64 overflow-y-auto font-normal text-gray-700;
+      }
+      h2 {
+        @apply mb-2 text-2xl font-bold tracking-tight text-gray-800;
+      }
+    }
+    .buttons {
+      @apply flex gap-2;
+    }
+  }
+
+  form {
+    @apply flex flex-col justify-between h-full;
+
+    textarea {
+      @apply rounded mb-2 font-bold focus:outline-brown text-2xl p-1 bg-gray-50;
+    }
+    .description {
+      @apply w-full block mb-3 h-auto p-1 text-sm font-normal text-gray-700 focus:outline-brown bg-gray-50 rounded-lg border;
+    }
+    input {
+      @apply mb-2 rounded font-bold text-2xl p-1 focus:outline-brown bg-gray-50;
+    }
+    .buttons {
+      @apply flex gap-2 mt-4;
+    }
+  }
+}
