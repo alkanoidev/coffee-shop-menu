@@ -1,13 +1,12 @@
 const category = require("../models/category.js");
-const { ObjectId } = require("mongodb");
 const axios = require("axios/index");
 
 exports.categoryList = async (req, res) => {
   res.json({ categoryList: await category.getAllCategories() });
 };
 
-exports.category = (req, res) => {
-  res.json({ category: category.getCategory(req.params) });
+exports.category = async (req, res) => {
+  res.json({ category: await category.getCategory(req.params) });
 };
 
 exports.newCategory = async (req, res) => {
@@ -19,8 +18,8 @@ exports.editCategory = async (req, res) => {
   let result;
   const newCategory = req.body;
   category.getCategory(req.params).then((res) => {
-    category.editCategory(res._id, newCategory, function(err, res) {
-      if(err) result=err
+    category.editCategory(res._id, newCategory, function (err, res) {
+      if (err) result = err;
       result = res;
     });
   });

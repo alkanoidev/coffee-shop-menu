@@ -7,7 +7,8 @@
 - fix rerender kada se unese nova kategorija i kada se obrise
 - code refactor
 - fix edit button positioning inside item.js
-display category inside ITEM.js somehow
+- display category inside ITEM.js somehow
+- routing kada se otvori modal
 
 ### backend
 

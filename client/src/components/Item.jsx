@@ -38,7 +38,7 @@ export default function Item({ name, description, price }) {
     setEditMode(false);
   };
   return (
-    <div className="item max-w-sm  p-5 bg-brown1 rounded-lg border shadow-md">
+    <div className="item p-5 bg-brown1 rounded-lg border shadow-md">
       {editMode ? (
         <form className="flex flex-col justify-between  h-full">
           <textarea
