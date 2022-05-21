@@ -9,7 +9,7 @@ $transition: 0.2s all ease;
   border-radius: 10px;
   transition: $transition;
   position: relative;
-  @apply bg-brown1;
+  @apply bg-brown1 shadow-md;
 
   button {
     transition: $transition;
