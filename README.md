@@ -11,6 +11,8 @@
 - import slike unutar reacta
 - design doradi malo
 
+Manage your shops inventory.
+
 ### backend
 
 - refactor
