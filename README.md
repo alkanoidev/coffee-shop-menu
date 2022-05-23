@@ -4,9 +4,9 @@
 
 > Manage your shops inventory.
 
-### [Demo](TODO: hostuj)
+### ✨ [Demo](TODO: hostuj)
 
-## Tech Stack:
+### 🛠 Tech Stack:
 | Frontend      | Backend     |
 | ------------- | ----------- |
 | React         | NodeJS      |
@@ -18,7 +18,7 @@
 | Vite          |
 | Figma         |
 
-### Features
+### 🚀 Features
 - Create Read Update Delete functionality
 - MVC architecture
 - Sorting items by category
@@ -48,7 +48,7 @@ cd client && npm run dev
 cd server && npm run dev
 ```
 
-### Author
+### Author 👋
 
  **Filip Ivanovic**
 
