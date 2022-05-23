@@ -43,11 +43,7 @@ exports.editCategory = async (_id, category) => {
   return result;
 };
 
-exports.deleteCategory = async (_id) => {
-  // client.connect();
-  const result = categoriesCollection.deleteOne({
-    _id: new mongodb.ObjectId(_id),
-  });
-  // client.close();
+exports.deleteCategory = (_id) => {
+  const result = categoriesCollection.deleteOne({_id: mongodb.ObjectId(_id)});
   return result;
 };

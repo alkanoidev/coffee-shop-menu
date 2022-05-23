@@ -40,16 +40,17 @@ export default function Items() {
     getItems();
     getCategories();
   }, []);
+  
 
   return (
     <Layout>
       <div className="flex justify-center p-2 sm:p-2 sm:justify-center flex-wrap items-stretch w-full gap-6">
         <div
-          className="w-full flex flex-col justify-center items-center"
+          className="w-72 relative flex flex-col justify-center items-center"
           ref={illustrationDiv}
         >
           <button
-            className="text-3xl"
+            className="text-3xl absolute right-0 top-0"
             onClick={() => {
               illustrationDiv.current.style.display = "none";
             }}
@@ -57,7 +58,9 @@ export default function Items() {
             <AiOutlineCloseCircle />
           </button>
           <img src={Illustration} alt="" className="w-96" />
-          <h1 className="capitalize text-lg p-0 m-0">Manage your shops inventory.</h1>
+          <h1 className="capitalize text-lg p-0 m-0">
+            Manage your shops inventory.
+          </h1>
         </div>
         <div className="w-full mb-5 flex justify-center items-center">
           <SearchAndFilter categories={categories} />
@@ -66,9 +69,12 @@ export default function Items() {
         {items.map((item) => (
           <Item
             key={item._id}
+            _id={item._id}
             name={item.name}
             description={item.description}
             price={item.price}
+            items={items}
+            setItems={setItems}
           />
         ))}
         <div className="fixed z-10 bottom-4 right-4">
@@ -85,6 +91,8 @@ export default function Items() {
             handleClose={() => {
               setNewItemModal(false);
             }}
+            items={items}
+            setItems={setItems}
           />
         )}
       </div>

@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "../Buttons/Button";
 import "./style.scss";
-import { MdOutlineClose } from "react-icons/md";
 import ItemEditMode from "./ItemEditMode";
 
-export default function Item({ name, description, price }) {
+export default function Item({
+  _id,
+  name,
+  description,
+  price,
+  items,
+  setItems,
+}) {
   const [editMode, setEditMode] = useState(false);
   const [item, setItem] = useState({
+    _id: _id,
     name: "",
     description: "",
     price: "",
@@ -26,17 +33,19 @@ export default function Item({ name, description, price }) {
 
   const handleDelete = () => {
     axios.delete(`http://localhost:3001/items/item/delete/${name}`);
+    const newItems = items.filter((item) => item._id !== _id);
+    setItems(newItems);
   };
   const handleUpdate = async () => {
     await axios
       .post(`http://localhost:3001/items/item/update/${name}`, item)
-      .then((res) => {
-        console.log(res);
-      })
       .catch((err) => {
         console.log(err);
       });
     setEditMode(false);
+    const index = items.findIndex((item) => item._id === _id);
+    items[index] = item;
+    setItems(items);
   };
   return (
     <div className="item">
@@ -44,7 +53,7 @@ export default function Item({ name, description, price }) {
         <ItemEditMode
           handleChange={handleChange}
           setEditMode={setEditMode}
-          handleEdit={handleUpdate}
+          handleUpdate={handleUpdate}
           item={item}
         />
       ) : (

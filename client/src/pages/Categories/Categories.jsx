@@ -29,10 +29,6 @@ export default function Categories() {
     getCategories();
   }, []);
 
-  const openCategoryDetailsModal = (category) => {
-    setIsOpenCategoryDetails(true);
-    setCurrentCategory(category);
-  };
 
   return (
     <Layout>
@@ -44,7 +40,8 @@ export default function Categories() {
               key={category._id}
               categoryName={category.name}
               onClick={() => {
-                openCategoryDetailsModal(category);
+                setIsOpenCategoryDetails(true);
+                setCurrentCategory(category);
               }}
             />
           ))}

@@ -23,12 +23,11 @@ exports.editCategory = async (req, res) => {
       result = res;
     });
   });
-  // const result = await category.editCategory(_id, newCategory);
   res.json(result);
 };
 
-exports.deleteCategory = async (req, res) => {
+exports.deleteCategory = (req, res) => {
   const _id = category.getCategory(req.params)._id;
-  const result = await category.deleteCategory(_id);
+  const result = category.deleteCategory(_id);
   res.json({ result: result });
 };

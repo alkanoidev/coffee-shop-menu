@@ -6,7 +6,7 @@ import ReactPortal from "../ReactPortal";
 import Dropdown from "../Dropdown/Dropdown";
 import "./style.scss";
 
-export default function NewItemModal({ isOpen, handleClose }) {
+export default function NewItemModal({ isOpen, handleClose, items, setItems }) {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [item, setItem] = useState({
@@ -28,6 +28,8 @@ export default function NewItemModal({ isOpen, handleClose }) {
       .catch((error) => {
         console.log(error);
       });
+    items.push(item);
+    setItems(items);
   };
 
   const handleChange = (e) => {
