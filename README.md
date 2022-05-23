@@ -4,7 +4,7 @@
 
 > Manage your shops inventory.
 
-### ✨ [Demo](netlify link zapravo)
+### [Demo](TODO: hostuj)
 
 ## Tech Stack:
 | Frontend      | Backend     |
@@ -15,7 +15,8 @@
 | Sass          | Axios       | 
 | Axios         |         
 | Framer-Motion |         
-| Vite          |         
+| Vite          |
+| Figma         |
 
 ### Features
 - Create Read Update Delete functionality
@@ -27,12 +28,13 @@
 
 ### Screenshots:
 <div>
-<img alt="" src="screenshots/Screenshot2022-05-23173142.png" width="400">
-<img alt="" src="screenshots/Screenshot2022-05-23173221.png" width="400">
-<img alt="" src="screenshots/Screenshot2022-05-23173240.png" width="400">
-<img alt="" src="screenshots/Screenshot2022-05-23173257.png" width="400">
-<img alt="" src="screenshots/Screenshot2022-05-23173316.png" width="400">
+<img alt="" src="screenshots/Screenshot2022-05-23173142.png">
+<img alt="" src="screenshots/Screenshot2022-05-23173221.png">
+<img alt="" src="screenshots/Screenshot2022-05-23173240.png">
+<img alt="" src="screenshots/Screenshot2022-05-23173257.png">
+<img alt="" src="screenshots/Screenshot2022-05-23173316.png">
 </div>
+
 ### Install
 
 ```sh
@@ -48,7 +50,7 @@ cd server && npm run dev
 
 ### Author
 
-👤 **Filip Ivanovic**
+ **Filip Ivanovic**
 
 * Website: TODO: add portfolio
 * Github: [@alkanoidev](https://github.com/alkanoidev)
