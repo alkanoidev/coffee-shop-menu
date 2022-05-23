@@ -1,29 +1,57 @@
-# Coffee Shop Menu
+# coffee-shop-inventory-app
+<p>
+</p>
 
-## Todo:
+> Manage your shops inventory.
 
-- organize paths!!!!
-- search functionality
-- organizuj po kategorijama i tako izlistaj sve!!!
-- animacije!!!!!!!!!
-- routing kada se otvori modal
-- import slike unutar reacta
-- design doradi malo
-- fix kada edit ne rerenderuje se
-- rerender u categorijama
+### ✨ [Demo](netlify link zapravo)
 
-Manage your shops inventory.
+## Tech Stack:
+| Frontend      | Backend     |
+| ------------- | ----------- |
+| React         | NodeJS      |
+| React-router  | ExpressJS   |
+| TailwindCSS   | MongoDB     |
+| Sass          | Axios       | 
+| Axios         |         
+| Framer-Motion |         
+| Vite          |         
 
-### backend
+## Features
+- Create Read Update Delete functionality
+- MVC architecture
+- Sorting items by category
+- Searching items by name
+- React Modals (Portal)
+- Framer Motion scrolling animation
 
-- refactor
-- use try catch
-- NE RADI DELETE CATEGORY
+## Screenshots
 
-## design inspo
+<img alt="" src="screenshots/Screenshot2022-05-23173142.png" width="400">
+<img alt="" src="screenshots/Screenshot2022-05-23173221.png" width="400">
+<img alt="" src="screenshots/Screenshot2022-05-23173240.png" width="400">
+<img alt="" src="screenshots/Screenshot2022-05-23173257.png" width="400">
+<img alt="" src="screenshots/Screenshot2022-05-23173316.png" width="400">
 
-[starbucks menu](https://www.starbucks.com/menu)
+## Install
 
-mvc
+```sh
+npm install
+```
 
-# plant managment
+## Usage
+
+```sh
+cd client && npm run dev
+cd server && npm run dev
+```
+
+## Author
+
+👤 **Filip Ivanovic**
+
+* Website: TODO: add portfolio
+* Github: [@alkanoidev](https://github.com/alkanoidev)
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
