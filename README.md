@@ -26,13 +26,13 @@
 - Framer Motion scrolling animation
 
 ### Screenshots:
-
+<div>
 <img alt="" src="screenshots/Screenshot2022-05-23173142.png" width="400">
 <img alt="" src="screenshots/Screenshot2022-05-23173221.png" width="400">
 <img alt="" src="screenshots/Screenshot2022-05-23173240.png" width="400">
 <img alt="" src="screenshots/Screenshot2022-05-23173257.png" width="400">
 <img alt="" src="screenshots/Screenshot2022-05-23173316.png" width="400">
-
+</div>
 ### Install
 
 ```sh
