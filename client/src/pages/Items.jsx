@@ -15,10 +15,11 @@ export default function Items() {
   const [newItemModal, setNewItemModal] = useState(false);
   const [categories, setCategories] = useState([]);
   const illustrationDiv = useRef(null);
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
   let delay = 0;
 
   const getItems = async () => {
-    await axios.get("http://localhost:3001/items").then((res) => {
+    await axios.get(`http://localhost:3001/items/`).then((res) => {
       setItems(res.data.itemList);
       setIsLoading(false);
     });
@@ -36,11 +37,39 @@ export default function Items() {
         console.log(err);
       });
   };
+  const getItemsByCategory = async () => {
+    await axios
+      .get(`http://localhost:3001/items/category/${selectedCategory}`)
+      .then((res) => {
+        setItems(res.data.itemList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     getItems();
     getCategories();
   }, []);
+
+  // useEffect(() => {
+  //   if (selectedCategory === "All Categories") {
+  //     getItems();
+  //   } else {
+  //     getItemsByCategory(selectedCategory);
+  //   }
+  //   console.log("lol"); // ne sme se ovde koristiti setItems()
+  // }, [items]);
+
+  useEffect(() => {
+    if (selectedCategory === "All Categories") {
+      getItems();
+      console.log("here");
+    } else {
+      getItemsByCategory(selectedCategory);
+    }
+  }, [selectedCategory, items]);
 
   return (
     <Layout>
@@ -63,7 +92,11 @@ export default function Items() {
           </h1>
         </div>
         <div className="w-full mb-5 flex justify-center items-center">
-          <SearchAndFilter categories={categories} />
+          <SearchAndFilter
+            categories={categories}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
         </div>
         {isLoading && <Loader />}
         {items.map((item) => {

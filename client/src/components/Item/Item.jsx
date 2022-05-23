@@ -12,7 +12,7 @@ export default function Item({
   price,
   items,
   setItems,
-  delay
+  delay,
 }) {
   const [editMode, setEditMode] = useState(false);
   const [item, setItem] = useState({
@@ -45,9 +45,10 @@ export default function Item({
         console.log(err);
       });
     setEditMode(false);
-    const index = items.findIndex((item) => item._id === _id);
-    items[index] = item;
-    setItems(items);
+    setItems((prev) => {
+      prev[prev.findIndex((item) => item._id === _id)] = item;
+      return prev;
+    });
   };
   return (
     <motion.div
@@ -71,7 +72,7 @@ export default function Item({
       ) : (
         <>
           <div className="content">
-            <div>
+            <div className="text">
               <a href="#">
                 <h5>{name}</h5>
               </a>

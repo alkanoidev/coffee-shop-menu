@@ -39,3 +39,12 @@ exports.deleteItem = async (req, res) => {
   const result = await item.deleteItem(_id);
   res.json({ result: result });
 };
+
+exports.getByCategory = async (req, res) => {
+  const category = req.params.category;
+  let result;
+
+  result = await item.getByCategory(category);
+
+  res.json({ itemList: result });
+};

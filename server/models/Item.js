@@ -46,3 +46,9 @@ exports.deleteItem = async (_id) => {
   // client.close();
   return result;
 };
+
+exports.getByCategory = async (category) => {
+  let result;
+  result = await itemsCollection.find({ category: category }).toArray();
+  return result;
+}

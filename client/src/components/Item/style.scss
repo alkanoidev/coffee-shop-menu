@@ -3,7 +3,8 @@
   @apply p-5 bg-brown1 rounded-lg border shadow-md;
   .content {
     @apply flex flex-col justify-between gap-5 h-full;
-    div {
+    .text {
+
       a {
         h5 {
           @apply mb-2 text-2xl font-bold tracking-tight text-gray-800;

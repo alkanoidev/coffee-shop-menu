@@ -6,6 +6,8 @@ router.get("/", itemController.itemList);
 
 router.get("/item/:name", itemController.item);
 
+router.get("/category/:category", itemController.getByCategory);
+
 router.post("/item/new/:category", itemController.newItem);
 
 router.post("/item/update/:name", itemController.editItem);

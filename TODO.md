@@ -10,6 +10,8 @@
 - design doradi malo
 - fix kada edit ne rerenderuje se
 - rerender u categorijama
+- fix infinite loop gde se fetchuje getItems
+  ne sme se raditi setState unutar useEffecta gde je on dependency
 
 Manage your shops inventory.
 

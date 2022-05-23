@@ -4,9 +4,10 @@ import "./style.scss";
 
 export default function SearchAndFilter({
   categories,
+  setSelectedCategory,
+  selectedCategory
 }) {
   const [isFocused, setIsFocused] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("All Categories");
 
   return (
     <div
@@ -14,7 +15,6 @@ export default function SearchAndFilter({
       style={{ borderColor: isFocused ? "#00704a" : "#d4e9e2" }}
     >
       <Dropdown
-        buttonTitle="All Categories"
         items={categories}
         setIsFocused={setIsFocused}
         selectedCategory={selectedCategory}
