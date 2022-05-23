@@ -17,6 +17,7 @@ Manage your shops inventory.
 
 - refactor
 - use try catch
+- NE RADI DELETE CATEGORY
 
 ## design inspo
 
