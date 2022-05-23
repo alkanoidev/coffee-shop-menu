@@ -15,6 +15,7 @@ export default function Items() {
   const [newItemModal, setNewItemModal] = useState(false);
   const [categories, setCategories] = useState([]);
   const illustrationDiv = useRef(null);
+  let delay = 0;
 
   const getItems = async () => {
     await axios.get("http://localhost:3001/items").then((res) => {
@@ -40,7 +41,6 @@ export default function Items() {
     getItems();
     getCategories();
   }, []);
-  
 
   return (
     <Layout>
@@ -66,17 +66,21 @@ export default function Items() {
           <SearchAndFilter categories={categories} />
         </div>
         {isLoading && <Loader />}
-        {items.map((item) => (
-          <Item
-            key={item._id}
-            _id={item._id}
-            name={item.name}
-            description={item.description}
-            price={item.price}
-            items={items}
-            setItems={setItems}
-          />
-        ))}
+        {items.map((item) => {
+          delay += 0.1;
+          return (
+            <Item
+              key={item._id}
+              _id={item._id}
+              name={item.name}
+              description={item.description}
+              price={item.price}
+              items={items}
+              setItems={setItems}
+              delay={delay}
+            />
+          );
+        })}
         <div className="fixed z-10 bottom-4 right-4">
           <NewItemFAB
             path="/"

@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "../Buttons/Button";
 import "./style.scss";
 import ItemEditMode from "./ItemEditMode";
+import { motion } from "framer-motion";
 
 export default function Item({
   _id,
@@ -11,6 +12,7 @@ export default function Item({
   price,
   items,
   setItems,
+  delay
 }) {
   const [editMode, setEditMode] = useState(false);
   const [item, setItem] = useState({
@@ -48,7 +50,17 @@ export default function Item({
     setItems(items);
   };
   return (
-    <div className="item">
+    <motion.div
+      className="item"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false }}
+      transition={{ delay: delay }}
+      variants={{
+        visible: { opacity: 1, x: 0 },
+        hidden: { opacity: 0, x: -100 },
+      }}
+    >
       {editMode ? (
         <ItemEditMode
           handleChange={handleChange}
@@ -78,6 +90,6 @@ export default function Item({
           </div>
         </>
       )}
-    </div>
+    </motion.div>
   );
 }
