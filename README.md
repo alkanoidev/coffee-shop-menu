@@ -17,7 +17,7 @@
 | Framer-Motion |         
 | Vite          |         
 
-## Features
+### Features
 - Create Read Update Delete functionality
 - MVC architecture
 - Sorting items by category
@@ -25,7 +25,7 @@
 - React Modals (Portal)
 - Framer Motion scrolling animation
 
-## Screenshots
+### Screenshots:
 
 <img alt="" src="screenshots/Screenshot2022-05-23173142.png" width="400">
 <img alt="" src="screenshots/Screenshot2022-05-23173221.png" width="400">
@@ -33,25 +33,22 @@
 <img alt="" src="screenshots/Screenshot2022-05-23173257.png" width="400">
 <img alt="" src="screenshots/Screenshot2022-05-23173316.png" width="400">
 
-## Install
+### Install
 
 ```sh
 npm install
 ```
 
-## Usage
+### Usage
 
 ```sh
 cd client && npm run dev
 cd server && npm run dev
 ```
 
-## Author
+### Author
 
 👤 **Filip Ivanovic**
 
 * Website: TODO: add portfolio
 * Github: [@alkanoidev](https://github.com/alkanoidev)
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
