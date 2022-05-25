@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Item from "../components/Item/Item";
 import Layout from "../components/Layout/Layout";
 import axios from "axios";
@@ -19,11 +19,25 @@ export default function Items() {
   let delay = 0;
 
   const getItems = async () => {
-    await axios.get(`http://localhost:3001/items/`).then((res) => {
-      setItems(res.data.itemList);
-      setIsLoading(false);
-    });
+    if (selectedCategory === "All Categories") {
+      await axios.get(`http://localhost:3001/items/`).then((res) => {  // get all items
+        setItems(res.data.itemList);
+        setIsLoading(false);
+      });
+    } else {
+      await axios // get Items by category
+        .get(`http://localhost:3001/items/category/${selectedCategory}`)
+        .then((res) => {
+          setItems(res.data.itemList);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
+
+  const getItemsMemoized = useCallback(getItems, [selectedCategory, items]);
+
   const getCategories = async () => {
     await axios
       .get("http://localhost:3001/categories/")
@@ -37,38 +51,14 @@ export default function Items() {
         console.log(err);
       });
   };
-  const getItemsByCategory = async () => {
-    await axios
-      .get(`http://localhost:3001/items/category/${selectedCategory}`)
-      .then((res) => {
-        setItems(res.data.itemList);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   useEffect(() => {
     getItems();
     getCategories();
   }, []);
 
-  // useEffect(() => {
-  //   if (selectedCategory === "All Categories") {
-  //     getItems();
-  //   } else {
-  //     getItemsByCategory(selectedCategory);
-  //   }
-  //   console.log("lol"); // ne sme se ovde koristiti setItems()
-  // }, [items]);
-
   useEffect(() => {
-    if (selectedCategory === "All Categories") {
-      getItems();
-      console.log("here");
-    } else {
-      getItemsByCategory(selectedCategory);
-    }
+    getItemsMemoized();
   }, [selectedCategory, items]);
 
   return (
