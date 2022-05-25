@@ -24,7 +24,7 @@
 - React Modals (Portal)
 - Framer Motion scrolling animation
 
-### Screenshots:
+### 🖼 Screenshots:
 <div>
 <img alt="" src="screenshots/Screenshot2022-05-23173142.png">
 <img alt="" src="screenshots/Screenshot2022-05-23173221.png">
@@ -33,13 +33,13 @@
 <img alt="" src="screenshots/Screenshot2022-05-23173316.png">
 </div>
 
-### Install
+### ⚙ Install
 
 ```sh
 npm install
 ```
 
-### Usage
+### ⚙ Usage
 
 ```sh
 cd client && npm run dev
