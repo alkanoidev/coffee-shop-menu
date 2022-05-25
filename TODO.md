@@ -9,6 +9,7 @@
 - import slike unutar reacta
 - confirm to delete item
 - fix infinite loop useEffect
+- loading spinner na svim requestovima, kao component...
 
 Manage your shops inventory.
 
