@@ -7,6 +7,8 @@
 - search functionality
 - routing kada se otvori modal
 - import slike unutar reacta
+- confirm to delete item
+- fix infinite loop useEffect
 
 Manage your shops inventory.
 

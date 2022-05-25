@@ -55,7 +55,7 @@ export default function Items() {
   useEffect(() => {
     getItems();
     getCategories();
-  }, [getItems]);
+  }, [items, selectedCategory]);
 
   return (
     <Layout>

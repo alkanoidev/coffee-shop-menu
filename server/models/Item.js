@@ -35,7 +35,10 @@ exports.newItem = async (item) => {
 exports.editItem = async (_id, item) => {
   // client.connect();
   let result;
-  result = await itemsCollection.updateOne({ _id: new ObjectId(_id) }, { $set: item });
+  result = await itemsCollection.updateOne(
+    { _id: new ObjectId(_id) },
+    { $set: item }
+  );
   // client.close();
   return result;
 };
@@ -51,4 +54,4 @@ exports.getByCategory = async (category) => {
   let result;
   result = await itemsCollection.find({ category: category }).toArray();
   return result;
-}
+};
