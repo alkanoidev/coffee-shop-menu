@@ -18,12 +18,14 @@ export default function Items() {
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   let delay = 0;
 
-  const getItems = async () => {
+  const getItems = useCallback(async () => {
     if (selectedCategory === "All Categories") {
-      await axios.get(`http://localhost:3001/items/`).then((res) => {  // get all items
-        setItems(res.data.itemList);
-        setIsLoading(false);
-      });
+      await axios  // get all items
+      .get(`http://localhost:3001/items/`) 
+        .then((res) => {
+          setItems(res.data.itemList);
+          setIsLoading(false);
+        });
     } else {
       await axios // get Items by category
         .get(`http://localhost:3001/items/category/${selectedCategory}`)
@@ -34,9 +36,7 @@ export default function Items() {
           console.log(err);
         });
     }
-  };
-
-  const getItemsMemoized = useCallback(getItems, [selectedCategory, items]);
+  }, [selectedCategory, items]);
 
   const getCategories = async () => {
     await axios
@@ -55,10 +55,6 @@ export default function Items() {
   useEffect(() => {
     getItems();
     getCategories();
-  }, []);
-
-  useEffect(() => {
-    getItemsMemoized();
   }, [selectedCategory, items]);
 
   return (
