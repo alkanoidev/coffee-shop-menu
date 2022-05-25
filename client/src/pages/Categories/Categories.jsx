@@ -1,7 +1,7 @@
 import Category from "../../components/Category/Category";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import NewItemFAB from "../../components/Buttons/NewItemFAB";
 import Loader from "../../components/Loader/Loader";
 import NewCategoryModal from "../../components/NewCategory/NewCategoryModal";
@@ -14,21 +14,21 @@ export default function Categories() {
   const [isOpenCategoryDetails, setIsOpenCategoryDetails] = useState(false);
   const [currentCategory, setCurrentCategory] = useState({});
 
+  const getCategories = useCallback(async () => {
+    await axios
+      .get("http://localhost:3001/categories/")
+      .then((res) => {
+        setCategoryList(res.data.categoryList);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [categoryList]);
+
   useEffect(() => {
-    const getCategories = async () => {
-      await axios
-        .get("http://localhost:3001/categories/")
-        .then((res) => {
-          setCategoryList(res.data.categoryList);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    };
     getCategories();
   }, []);
-
 
   return (
     <Layout>
@@ -61,16 +61,20 @@ export default function Categories() {
           handleClose={() => {
             setIsOpen(false);
           }}
+          categoryList={categoryList}
+          setCategoryList={setCategoryList}
         />
       )}
 
       {isOpenCategoryDetails && (
         <CategoryDetailsModal
           isOpen={isOpenCategoryDetails}
-          name={currentCategory.name}
+          currentCategory={currentCategory}
           handleClose={() => {
             setIsOpenCategoryDetails(false);
           }}
+          categoryList={categoryList}
+          setCategoryList={setCategoryList}
         />
       )}
     </Layout>

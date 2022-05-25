@@ -7,11 +7,6 @@
 - search functionality
 - routing kada se otvori modal
 - import slike unutar reacta
-- design doradi malo
-- fix kada edit ne rerenderuje se
-- rerender u categorijama
-- fix infinite loop gde se fetchuje getItems
-  ne sme se raditi setState unutar useEffecta gde je on dependency
 
 Manage your shops inventory.
 
@@ -20,6 +15,10 @@ Manage your shops inventory.
 - refactor
 - use try catch
 - NE RADI DELETE CATEGORY
+- NE RADI UPDATE CATEGORY
+
+### deploy
+- sve na jednom serveru da se salje /BUILD
 
 ## design inspo
 

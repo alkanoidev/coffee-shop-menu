@@ -5,7 +5,12 @@ import { useNavigate } from "react-router-dom";
 import ReactPortal from "../ReactPortal";
 import "./style.scss";
 
-export default function NewCategoryModal({ handleClose, isOpen }) {
+export default function NewCategoryModal({
+  handleClose,
+  isOpen,
+  categoryList,
+  setCategoryList,
+}) {
   const [category, setCategory] = useState({
     name: "",
   });
@@ -15,6 +20,9 @@ export default function NewCategoryModal({ handleClose, isOpen }) {
     axios
       .post("http://localhost:3001/categories/category/new/", category)
       .then(() => {
+        const categories = [...categoryList];
+        categories.push(category);
+        setCategoryList(categories);
         handleClose();
         navigate("/categories");
       })
@@ -49,11 +57,7 @@ export default function NewCategoryModal({ handleClose, isOpen }) {
         <div className="card item">
           <form>
             <div>
-              <label
-                htmlFor="first_name"
-              >
-                Name
-              </label>
+              <label htmlFor="first_name">Name</label>
               <input
                 type="text"
                 name="name"

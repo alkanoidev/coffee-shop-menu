@@ -1,6 +1,6 @@
 # coffee-shop-inventory-app
 
-> Manage your shops inventory.
+Manage your shops inventory.
 
 ### ✨ [Demo](TODO: hostuj)
 

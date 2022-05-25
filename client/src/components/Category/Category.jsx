@@ -13,7 +13,7 @@ export default function Category({
         <img src={`/src/pages/Categories/icons/${categoryName}.png`} alt="" />
       </div>
       {edit ? (
-        <input type="text" value={newName} onChange={onChange} />
+        <input type="text" name="name" value={newName} onChange={onChange} />
       ) : (
         <h1>{categoryName || "Category"}</h1>
       )}

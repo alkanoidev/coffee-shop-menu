@@ -5,19 +5,60 @@ import Category from "../Category/Category";
 import axios from "axios";
 import "./style.scss";
 
-export default function CategoryDetailsModal({ name, isOpen, handleClose }) {
+export default function CategoryDetailsModal({
+  currentCategory,
+  isOpen,
+  handleClose,
+  categoryList,
+  setCategoryList,
+}) {
   const [editMode, setEditMode] = useState(false);
-  const [newName, setNewName] = useState(name);
-
+  const [category, setCategory] = useState(currentCategory);
+  
   const handleDelete = async () => {
     await axios
-      .delete(`http://localhost:3001/categories/category/delete/${name}`)
+      .delete(
+        `http://localhost:3001/categories/category/delete/${category.name}`
+      )
       .then(() => {
+        const newCategories = categoryList.filter(
+          (cat) => cat._id !== category._id
+        );
+        setCategoryList(newCategories);
         handleClose();
       })
       .catch((err) => {
         console.log(err);
       });
+  };
+  const handleUpdate = async () => {
+    if (editMode) {
+      await axios
+        .post(
+          `http://localhost:3001/categories/category/update/${category.name}`,
+          {
+            name: category.name,
+          }
+        )
+        .then((res) => {
+          setEditMode(false);
+          setCategoryList((prev) => {
+            prev[prev.findIndex((cat) => cat._id === category._id)] = category;
+            return prev;
+          });
+          handleClose();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      setEditMode(true);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCategory((prev) => ({ ...prev, [name]: value }));
   };
 
   useEffect(() => {
@@ -45,35 +86,15 @@ export default function CategoryDetailsModal({ name, isOpen, handleClose }) {
         <div className="card item">
           <div className="content">
             <Category
-              categoryName={name}
+              categoryName={category.name}
               edit={editMode}
               onChange={(e) => {
-                setNewName(e.target.value);
+                handleChange(e);
               }}
-              newName={newName}
+              newName={category.name}
             />
             <div>
-              <Button
-                title="Edit"
-                onClick={async () => {
-                  if (editMode) {
-                    await axios
-                      .post(
-                        `http://localhost:3001/categories/category/update/${name}`,
-                        { name: newName }
-                      )
-                      .then((res) => {
-                        setEditMode(false);
-                        handleClose();
-                      })
-                      .catch((err) => {
-                        console.log(err);
-                      });
-                  } else {
-                    setEditMode(true);
-                  }
-                }}
-              />
+              <Button title="Edit" onClick={handleUpdate} />
               <Button title="Delete" onClick={handleDelete} />
             </div>
           </div>
