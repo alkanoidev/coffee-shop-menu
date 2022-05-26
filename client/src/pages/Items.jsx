@@ -19,7 +19,7 @@ export default function Items() {
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   let delay = 0;
 
-  const getItems = useCallback(async () => {
+  const getItems = async () => {
     if (selectedCategory === "All Categories") {
       await axios // get all items
         .get(`http://localhost:3001/items/`)
@@ -37,7 +37,7 @@ export default function Items() {
           console.log(err);
         });
     }
-  }, [selectedCategory, items]);
+  }
 
   const getCategories = async () => {
     await axios
