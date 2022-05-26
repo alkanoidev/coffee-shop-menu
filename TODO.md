@@ -6,6 +6,7 @@
 - .env
 - search functionality
 - routing kada se otvori modal
+
 Manage your shops inventory.
 
 ### backend
