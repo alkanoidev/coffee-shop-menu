@@ -51,20 +51,17 @@ export default function NewItemModal({ isOpen, handleClose, items, setItems }) {
   }, [selectedCategory]);
 
   useEffect(() => {
-    const getCategories = async () => {
-      await axios
-        .get("http://localhost:3001/categories/")
-        .then((res) => {
-          const temp = res.data.categoryList.map((item) => ({
-            title: item.name,
-          }));
-          setCategories([...temp]);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    getCategories();
+    axios
+      .get("http://localhost:3001/categories/")
+      .then((res) => {
+        const temp = res.data.categoryList.map((item) => ({
+          title: item.name,
+        }));
+        setCategories([...temp]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (

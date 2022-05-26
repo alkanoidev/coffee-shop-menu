@@ -14,9 +14,9 @@ export default function Categories() {
   const [isOpenCategoryDetails, setIsOpenCategoryDetails] = useState(false);
   const [currentCategory, setCurrentCategory] = useState({});
 
-  const getCategories = useCallback(async () => {
+  const getCategories = useCallback(() => {
     setIsLoading(true);
-    await axios
+    axios
       .get("http://localhost:3001/categories/")
       .then((res) => {
         setCategoryList(res.data.categoryList);

@@ -38,8 +38,8 @@ export default function Item({
     const newItems = items.filter((item) => item._id !== _id);
     setItems(newItems);
   };
-  const handleUpdate = async () => {
-    await axios
+  const handleUpdate = () => {
+    axios
       .post(`http://localhost:3001/items/item/update/${name}`, item)
       .catch((err) => {
         console.log(err);

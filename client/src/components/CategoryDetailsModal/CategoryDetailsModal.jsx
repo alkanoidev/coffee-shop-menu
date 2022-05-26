@@ -14,9 +14,9 @@ export default function CategoryDetailsModal({
 }) {
   const [editMode, setEditMode] = useState(false);
   const [category, setCategory] = useState(currentCategory);
-  
-  const handleDelete = async () => {
-    await axios
+
+  const handleDelete = () => {
+    axios
       .delete(
         `http://localhost:3001/categories/category/delete/${category.name}`
       )
@@ -31,9 +31,9 @@ export default function CategoryDetailsModal({
         console.log(err);
       });
   };
-  const handleUpdate = async () => {
+  const handleUpdate = () => {
     if (editMode) {
-      await axios
+      axios
         .post(
           `http://localhost:3001/categories/category/update/${category.name}`,
           {

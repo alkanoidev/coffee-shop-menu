@@ -19,17 +19,17 @@ export default function Items() {
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   let delay = 0;
 
-  const getItems = async () => {
-    setIsLoading(true)
+  const getItems = () => {
+    setIsLoading(true);
     if (selectedCategory === "All Categories") {
-      await axios // get all items
+      axios // get all items
         .get(`http://localhost:3001/items/`)
         .then((res) => {
           setItems(res.data.itemList);
           setIsLoading(false);
         });
     } else {
-      await axios // get Items by category
+      axios // get Items by category
         .get(`http://localhost:3001/items/category/${selectedCategory}`)
         .then((res) => {
           setItems(res.data.itemList);
@@ -39,10 +39,10 @@ export default function Items() {
           console.log(err);
         });
     }
-  }
+  };
 
-  const getCategories = async () => {
-    await axios
+  const getCategories = () => {
+    axios
       .get("http://localhost:3001/categories/")
       .then((res) => {
         const temp = res.data.categoryList.map((item) => ({
