@@ -11,6 +11,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function Items() {
   const [items, setItems] = useState([]);
+  const { current: itemsRef } = useRef(items);
   const [isLoading, setIsLoading] = useState(true);
   const [newItemModal, setNewItemModal] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -20,8 +21,8 @@ export default function Items() {
 
   const getItems = useCallback(async () => {
     if (selectedCategory === "All Categories") {
-      await axios  // get all items
-      .get(`http://localhost:3001/items/`) 
+      await axios // get all items
+        .get(`http://localhost:3001/items/`)
         .then((res) => {
           setItems(res.data.itemList);
           setIsLoading(false);
@@ -55,7 +56,7 @@ export default function Items() {
   useEffect(() => {
     getItems();
     getCategories();
-  }, [items, selectedCategory]);
+  }, [itemsRef, selectedCategory]);
 
   return (
     <Layout>
