@@ -28,10 +28,10 @@ exports.newCategory = async (category) => {
   return result;
 };
 
-exports.editCategory = async (_id, category) => {
+exports.editCategory = (_id, category) => {
   // client.connect();
   let result;
-  result = await categoriesCollection.updateOne(
+  result = categoriesCollection.updateOne(
     { _id: new mongodb.ObjectId(_id) },
     { $set: category },
     (err, res) => {
@@ -43,7 +43,8 @@ exports.editCategory = async (_id, category) => {
   return result;
 };
 
-exports.deleteCategory = (_id) => {
-  const result = categoriesCollection.deleteOne({_id: mongodb.ObjectId(_id)});
+exports.deleteCategory = async (_id) => {
+  let result;
+  result = await categoriesCollection.deleteOne({ _id: _id });
   return result;
 };

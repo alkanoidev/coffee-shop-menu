@@ -42,6 +42,7 @@ export default function Items() {
   };
 
   const getCategories = () => {
+    setIsLoading(true);
     axios
       .get("http://localhost:3001/categories/")
       .then((res) => {
@@ -49,6 +50,7 @@ export default function Items() {
           title: item.name,
         }));
         setCategories([{ title: "All Categories" }, ...temp]);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);

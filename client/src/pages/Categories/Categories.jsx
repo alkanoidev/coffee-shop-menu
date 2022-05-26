@@ -1,7 +1,7 @@
 import Category from "../../components/Category/Category";
 import Layout from "../../components/Layout/Layout";
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NewItemFAB from "../../components/Buttons/NewItemFAB";
 import Loader from "../../components/Loader/Loader";
 import NewCategoryModal from "../../components/NewCategory/NewCategoryModal";
@@ -9,12 +9,13 @@ import CategoryDetailsModal from "../../components/CategoryDetailsModal/Category
 
 export default function Categories() {
   const [categoryList, setCategoryList] = useState([]);
+  const { current: categoriesRef } = useRef(categoryList);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCategoryDetails, setIsOpenCategoryDetails] = useState(false);
   const [currentCategory, setCurrentCategory] = useState({});
 
-  const getCategories = useCallback(() => {
+  useEffect(() => {
     setIsLoading(true);
     axios
       .get("http://localhost:3001/categories/")
@@ -25,11 +26,7 @@ export default function Categories() {
       .catch((err) => {
         console.error(err);
       });
-  }, [categoryList]);
-
-  useEffect(() => {
-    getCategories();
-  }, []);
+  }, [categoriesRef]);
 
   return (
     <Layout>

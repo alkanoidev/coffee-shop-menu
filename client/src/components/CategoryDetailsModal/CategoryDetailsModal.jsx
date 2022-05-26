@@ -14,11 +14,12 @@ export default function CategoryDetailsModal({
 }) {
   const [editMode, setEditMode] = useState(false);
   const [category, setCategory] = useState(currentCategory);
+  const [newCategory, setNewCategory] = useState(category);
 
   const handleDelete = () => {
     axios
       .delete(
-        `http://localhost:3001/categories/category/delete/${category.name}`
+        `http://localhost:3001/categories/category/delete/${newCategory.name}`
       )
       .then(() => {
         const newCategories = categoryList.filter(
@@ -37,13 +38,13 @@ export default function CategoryDetailsModal({
         .post(
           `http://localhost:3001/categories/category/update/${category.name}`,
           {
-            name: category.name,
+            name: newCategory.name,
           }
         )
         .then((res) => {
           setEditMode(false);
           setCategoryList((prev) => {
-            prev[prev.findIndex((cat) => cat._id === category._id)] = category;
+            prev[prev.findIndex((cat) => cat._id === category._id)] = newCategory;
             return prev;
           });
           handleClose();
@@ -58,7 +59,7 @@ export default function CategoryDetailsModal({
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCategory((prev) => ({ ...prev, [name]: value }));
+    setNewCategory((prev) => ({ ...prev, [name]: value }));
   };
 
   useEffect(() => {
@@ -91,7 +92,7 @@ export default function CategoryDetailsModal({
               onChange={(e) => {
                 handleChange(e);
               }}
-              newName={category.name}
+              newName={newCategory.name}
             />
             <div>
               <Button title="Edit" onClick={handleUpdate} />

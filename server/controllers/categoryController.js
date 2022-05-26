@@ -1,5 +1,6 @@
 const category = require("../models/category.js");
 const axios = require("axios/index");
+const { ObjectId } = require("mongodb");
 
 exports.categoryList = async (req, res) => {
   res.json({ categoryList: await category.getAllCategories() });
@@ -17,17 +18,23 @@ exports.newCategory = async (req, res) => {
 exports.editCategory = async (req, res) => {
   let result;
   const newCategory = req.body;
-  category.getCategory(req.params).then((res) => {
-    category.editCategory(res._id, newCategory, function (err, res) {
-      if (err) result = err;
-      result = res;
+  category
+    .getCategory(req.params)
+    .then((res) => {
+      category.editCategory(res._id, newCategory, function (err, res) {
+        if (err) result = err;
+        result = res;
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  });
   res.json(result);
 };
 
-exports.deleteCategory = (req, res) => {
-  const _id = category.getCategory(req.params)._id;
-  const result = category.deleteCategory(_id);
+exports.deleteCategory = async (req, res) => {
+  const category1 = await category.getCategory(req.params);
+  const _id = new ObjectId(category1._id);
+  const result = await category.deleteCategory(_id);
   res.json({ result: result });
 };
