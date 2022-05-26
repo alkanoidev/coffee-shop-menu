@@ -6,19 +6,12 @@
 - .env
 - search functionality
 - routing kada se otvori modal
-- import slike unutar reacta
-- confirm to delete item
-- fix infinite loop useEffect
-- loading spinner na svim requestovima, kao component...
-
 Manage your shops inventory.
 
 ### backend
 
 - refactor
 - use try catch
-- NE RADI DELETE CATEGORY
-- NE RADI UPDATE CATEGORY
 
 ### deploy
 - sve na jednom serveru da se salje /BUILD

@@ -4,6 +4,7 @@ import Button from "../Buttons/Button";
 import "./style.scss";
 import ItemEditMode from "./ItemEditMode";
 import { motion } from "framer-motion";
+import ItemDeleteDialogue from "../ItemDeleteDialogue/ItemDeleteDialogue";
 
 export default function Item({
   _id,
@@ -20,6 +21,10 @@ export default function Item({
     name: "",
     description: "",
     price: "",
+  });
+  const [dialogue, setDialogue] = useState({
+    isOpened: false,
+    isConfirmed: false,
   });
 
   useEffect(() => {
@@ -86,10 +91,25 @@ export default function Item({
                   setEditMode(true);
                 }}
               />
-              <Button title="Delete" onClick={handleDelete} />
+              <Button
+                title="Delete"
+                onClick={() => {
+                  setDialogue((prev) => ({ ...prev, isOpened: true }));
+                }}
+              />
             </div>
           </div>
         </>
+      )}
+      {dialogue.isOpened && (
+        <ItemDeleteDialogue
+          isOpen={dialogue.isOpened}
+          handleClose={() => {
+            setDialogue((prev) => ({ ...prev, isOpened: false }));
+          }}
+          setDialogue={setDialogue}
+          handleDelete={handleDelete}
+        />
       )}
     </motion.div>
   );
