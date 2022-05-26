@@ -6,13 +6,13 @@ import NewItemFAB from "../components/Buttons/NewItemFAB";
 import Loader from "../components/Loader/Loader";
 import SearchAndFilter from "../components/SearchAndFilter/SearchAndFilter";
 import NewItem from "../components/NewItemModal/NewItemModal";
-import Illustration from "./illustration.png";
+import Illustration from "../assets/illustration.png";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 export default function Items() {
   const [items, setItems] = useState([]);
   const { current: itemsRef } = useRef(items);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [newItemModal, setNewItemModal] = useState(false);
   const [categories, setCategories] = useState([]);
   const illustrationDiv = useRef(null);
@@ -20,6 +20,7 @@ export default function Items() {
   let delay = 0;
 
   const getItems = async () => {
+    setIsLoading(true)
     if (selectedCategory === "All Categories") {
       await axios // get all items
         .get(`http://localhost:3001/items/`)
@@ -32,6 +33,7 @@ export default function Items() {
         .get(`http://localhost:3001/items/category/${selectedCategory}`)
         .then((res) => {
           setItems(res.data.itemList);
+          setIsLoading(false);
         })
         .catch((err) => {
           console.log(err);

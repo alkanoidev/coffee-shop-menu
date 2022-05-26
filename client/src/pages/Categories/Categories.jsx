@@ -9,12 +9,13 @@ import CategoryDetailsModal from "../../components/CategoryDetailsModal/Category
 
 export default function Categories() {
   const [categoryList, setCategoryList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCategoryDetails, setIsOpenCategoryDetails] = useState(false);
   const [currentCategory, setCurrentCategory] = useState({});
 
   const getCategories = useCallback(async () => {
+    setIsLoading(true);
     await axios
       .get("http://localhost:3001/categories/")
       .then((res) => {
