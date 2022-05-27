@@ -1,4 +1,4 @@
-# coffee-shop-inventory-app
+# coffee-shop-menu
 
 Manage your shops inventory.
 
