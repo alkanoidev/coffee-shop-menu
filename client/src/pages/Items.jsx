@@ -66,68 +66,66 @@ export default function Items() {
   }, [itemsRef, selectedCategory]);
 
   return (
-    <Layout>
-      <div className="flex justify-center p-2 sm:p-2 sm:justify-center flex-wrap items-stretch w-full gap-6">
-        <div
-          className="w-72 relative flex flex-col justify-center items-center"
-          ref={illustrationDiv}
+    <div className="flex justify-center p-2 sm:p-2 sm:justify-center flex-wrap items-stretch w-full gap-6">
+      <div
+        className="w-72 relative flex flex-col justify-center items-center"
+        ref={illustrationDiv}
+      >
+        <button
+          className="text-3xl absolute right-0 top-0"
+          onClick={() => {
+            illustrationDiv.current.style.display = "none";
+          }}
         >
-          <button
-            className="text-3xl absolute right-0 top-0"
-            onClick={() => {
-              illustrationDiv.current.style.display = "none";
-            }}
-          >
-            <AiOutlineCloseCircle />
-          </button>
-          <img src={Illustration} alt="" className="w-96" />
-          <h1 className="capitalize text-lg p-0 m-0">
-            Manage your shops inventory.
-          </h1>
-        </div>
-        <div className="w-full mb-5 flex justify-center items-center">
-          <SearchAndFilter
-            categories={categories}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
-        </div>
-        {isLoading && <Loader />}
-        {items.map((item) => {
-          delay += 0.1;
-          return (
-            <Item
-              key={item._id}
-              _id={item._id}
-              name={item.name}
-              description={item.description}
-              price={item.price}
-              items={items}
-              setItems={setItems}
-              delay={delay}
-            />
-          );
-        })}
-        <div className="fixed z-10 bottom-4 right-4">
-          <NewItemFAB
-            onClick={() => {
-              setNewItemModal(true);
-              navigate("/new-item");
-            }}
-          />
-        </div>
-        {newItemModal && (
-          <NewItem
-            isOpen={newItemModal}
-            handleClose={() => {
-              setNewItemModal(false);
-              navigate("/");
-            }}
+          <AiOutlineCloseCircle />
+        </button>
+        <img src={Illustration} alt="" className="w-96" />
+        <h1 className="capitalize text-lg p-0 m-0">
+          Manage your shops inventory.
+        </h1>
+      </div>
+      <div className="w-full mb-5 flex justify-center items-center">
+        <SearchAndFilter
+          categories={categories}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+      </div>
+      {isLoading && <Loader />}
+      {items.map((item) => {
+        delay += 0.1;
+        return (
+          <Item
+            key={item._id}
+            _id={item._id}
+            name={item.name}
+            description={item.description}
+            price={item.price}
             items={items}
             setItems={setItems}
+            delay={delay}
           />
-        )}
+        );
+      })}
+      <div className="fixed z-10 bottom-4 right-4">
+        <NewItemFAB
+          onClick={() => {
+            setNewItemModal(true);
+            navigate("/new-item");
+          }}
+        />
       </div>
-    </Layout>
+      {newItemModal && (
+        <NewItem
+          isOpen={newItemModal}
+          handleClose={() => {
+            setNewItemModal(false);
+            navigate("/");
+          }}
+          items={items}
+          setItems={setItems}
+        />
+      )}
+    </div>
   );
 }
