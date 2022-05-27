@@ -1,14 +1,14 @@
 .Category {
   @apply flex flex-col items-center gap-2 justify-center w-20;
   div {
-    @apply shadow-md transition w-20 h-20 rounded-full bg-gradient-to-r from-brown to-green-600 flex 
+    @apply shadow-md transition w-20 h-20 rounded-full bg-gradient-to-r from-primary to-green-600 flex 
     justify-center items-center text-5xl text-zinc-900 hover:scale-110 hover:cursor-pointer;
     img {
       @apply w-10 h-10;
     }
   }
   input {
-    @apply focus:outline-none focus:ring-1 focus:ring-brown p-1;
+    @apply focus:outline-none focus:ring-1 focus:ring-primary p-1;
   }
   h1 {
     @apply text-lg text-center;

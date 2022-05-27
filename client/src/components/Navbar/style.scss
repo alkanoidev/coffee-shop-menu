@@ -1,5 +1,5 @@
 nav {
-  @apply rounded shadow-md rounded-t-none rounded-r-none bg-brown border-gray-200 px-2 sm:px-5 py-2.5 w-full;
+  @apply rounded shadow-md rounded-t-none rounded-r-none bg-primary border-gray-200 px-2 sm:px-5 py-2.5 w-full;
   .cont {
     @apply flex flex-wrap justify-between sm:justify-start items-center w-full;
     a {
@@ -28,7 +28,7 @@ nav {
       ul {
         @apply flex flex-col ml-4 mt-4 md:flex-row w-full md:space-x-8 md:mt-0 md:text-sm md:font-medium;
         li {
-          @apply rounded uppercase font-bold transition block py-2 pr-4 pl-3 md:px-2 text-white hover:text-brown1 md:p-0;
+          @apply rounded uppercase font-bold transition block py-2 pr-4 pl-3 md:px-2 text-white hover:text-secondary md:p-0;
         }
       }
     }

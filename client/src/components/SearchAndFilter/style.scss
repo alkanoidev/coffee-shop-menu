@@ -9,7 +9,7 @@ $transition: 0.2s all ease;
   border-radius: 10px;
   transition: $transition;
   position: relative;
-  @apply bg-brown1 shadow-md;
+  @apply bg-secondary shadow-md;
 
   button {
     transition: $transition;
@@ -33,7 +33,7 @@ $transition: 0.2s all ease;
       &:focus {
         outline: none;
       }
-      @apply bg-brown1;
+      @apply bg-secondary;
     }
   }
 }
