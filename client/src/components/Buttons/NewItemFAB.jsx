@@ -1,21 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
-export default function NewItemFAB({ path, onClick }) {
-  const navigate = useNavigate();
-
+export default function NewItemFAB({ onClick }) {
   return (
-    <button
-      className="FAB"
-      onClick={
-        path != "/"
-          ? () => {
-              navigate(path);
-            }
-          : onClick
-      }
-    >
+    <button className="FAB" onClick={onClick}>
       <svg
         viewBox="0 0 20 20"
         enableBackground="new 0 0 20 20"

@@ -8,6 +8,7 @@ import SearchAndFilter from "../components/SearchAndFilter/SearchAndFilter";
 import NewItem from "../components/NewItemModal/NewItemModal";
 import Illustration from "../assets/illustration.png";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useNavigate } from "react-router";
 
 export default function Items() {
   const [items, setItems] = useState([]);
@@ -17,6 +18,8 @@ export default function Items() {
   const [categories, setCategories] = useState([]);
   const illustrationDiv = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const navigate = useNavigate();
+
   let delay = 0;
 
   const getItems = () => {
@@ -107,9 +110,9 @@ export default function Items() {
         })}
         <div className="fixed z-10 bottom-4 right-4">
           <NewItemFAB
-            path="/"
             onClick={() => {
               setNewItemModal(true);
+              navigate("/new-item");
             }}
           />
         </div>
@@ -118,6 +121,7 @@ export default function Items() {
             isOpen={newItemModal}
             handleClose={() => {
               setNewItemModal(false);
+              navigate("/");
             }}
             items={items}
             setItems={setItems}

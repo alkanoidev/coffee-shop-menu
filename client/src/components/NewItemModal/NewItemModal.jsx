@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "../Buttons/Button";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import ReactPortal from "../ReactPortal";
 import Dropdown from "../Dropdown/Dropdown";
 import "./style.scss";
