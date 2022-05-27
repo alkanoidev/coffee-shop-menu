@@ -5,14 +5,9 @@
 - organize paths!!!!
 - .env
 - search functionality
-- routing kada se otvori modal
-
-Manage your shops inventory.
 
 ### backend
-
 - refactor
-- use try catch
 
 ### deploy
 - sve na jednom serveru da se salje /BUILD
