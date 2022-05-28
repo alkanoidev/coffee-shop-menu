@@ -12,7 +12,7 @@
 ### deploy
 - sve na jednom serveru da se salje /BUILD
 - react ssr sa expressom
-- serve assets from /src 
+- serve assets from /src
 - host netlify
 
 ## design inspo
@@ -20,7 +20,3 @@
 [starbucks menu](https://www.starbucks.com/menu)
 
 mvc
-
-# plant managment
-=======
->>>>>>> 7d64755b3c0ddd44739042c0e5e84e0ae82b50f6

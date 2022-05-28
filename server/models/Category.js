@@ -8,28 +8,21 @@ const Category = {
 };
 
 exports.getAllCategories = async () => {
-  // client.connect();
   const categories = await categoriesCollection.find({}).toArray();
-  // client.close();
   return categories;
 };
 
 exports.getCategory = (parameters) => {
-  // client.connect();
   const category = categoriesCollection.findOne(parameters);
-  // client.close();
   return category;
 };
 
 exports.newCategory = async (category) => {
-  // client.connect();
   const result = await categoriesCollection.insertOne(category);
-  // client.close();
   return result;
 };
 
 exports.editCategory = (_id, category) => {
-  // client.connect();
   let result;
   result = categoriesCollection.updateOne(
     { _id: new mongodb.ObjectId(_id) },
@@ -39,7 +32,6 @@ exports.editCategory = (_id, category) => {
       result = res;
     }
   );
-  // client.close();
   return result;
 };
 

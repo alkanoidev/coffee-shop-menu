@@ -12,41 +12,31 @@ const Item = {
 const itemsCollection = database.collection("items");
 
 exports.getAllItems = async () => {
-  // client.connect();
   const itemList = await itemsCollection.find({}).toArray();
-  // client.close();
   return itemList;
 };
 
 exports.getItem = async (parameters) => {
-  // client.connect();
   const item = itemsCollection.findOne(parameters);
-  // client.close();
   return item;
 };
 
 exports.newItem = async (item) => {
-  // client.connect();
   const result = await itemsCollection.insertOne(item);
-  // client.close();
   return result;
 };
 
 exports.editItem = async (_id, item) => {
-  // client.connect();
   let result;
   result = await itemsCollection.updateOne(
     { _id: new ObjectId(_id) },
     { $set: item }
   );
-  // client.close();
   return result;
 };
 
 exports.deleteItem = async (_id) => {
-  // client.connect();
   const result = await itemsCollection.deleteOne({ _id: _id });
-  // client.close();
   return result;
 };
 
