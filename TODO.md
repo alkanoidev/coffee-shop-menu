@@ -11,7 +11,6 @@
 
 ### deploy
 - sve na jednom serveru da se salje /BUILD
-<<<<<<< HEAD
 - react ssr sa expressom
 - serve assets from /src 
 - host netlify
