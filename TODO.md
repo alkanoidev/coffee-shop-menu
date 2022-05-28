@@ -11,6 +11,7 @@
 
 ### deploy
 - sve na jednom serveru da se salje /BUILD
+<<<<<<< HEAD
 - react ssr sa expressom
 - serve assets from /src 
 - host netlify
@@ -22,3 +23,5 @@
 mvc
 
 # plant managment
+=======
+>>>>>>> 7d64755b3c0ddd44739042c0e5e84e0ae82b50f6

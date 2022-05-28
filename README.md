@@ -1,4 +1,4 @@
-# coffee-shop-inventory-app
+# coffee-shop-menu
 
 Manage your shops inventory.
 
@@ -21,7 +21,7 @@ Manage your shops inventory.
 - MVC architecture
 - Sorting items by category
 - Searching items by name
-- React Modals (Portal)
+- React Modals (Portal) with custom routes
 - Framer Motion scrolling animation
 
 ### 🖼 Screenshots:
