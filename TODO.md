@@ -8,6 +8,7 @@
 
 ### backend
 - refactor
+- try catch
 
 ### deploy
 - sve na jednom serveru da se salje /BUILD
