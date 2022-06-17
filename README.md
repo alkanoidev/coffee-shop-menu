@@ -25,13 +25,12 @@ Manage your shops inventory.
 - Framer Motion scrolling animation
 
 ### 🖼 Screenshots:
-<div>
-<img alt="" src="screenshots/Screenshot2022-05-23173142.png">
-<img alt="" src="screenshots/Screenshot2022-05-23173221.png">
-<img alt="" src="screenshots/Screenshot2022-05-23173240.png">
-<img alt="" src="screenshots/Screenshot2022-05-23173257.png">
-<img alt="" src="screenshots/Screenshot2022-05-23173316.png">
-</div>
+
+![failed to load](https://raw.githubusercontent.com/alkanoidev/coffee-shop-menu/master/screenshots/Screenshot2022-05-23173142.png)
+![failed to load](https://raw.githubusercontent.com/alkanoidev/coffee-shop-menu/master/screenshots/Screenshot2022-05-23173221.png)
+![failed to load](https://raw.githubusercontent.com/alkanoidev/coffee-shop-menu/master/screenshots/Screenshot2022-05-23173240.png)
+![failed to load](https://raw.githubusercontent.com/alkanoidev/coffee-shop-menu/master/screenshots/Screenshot2022-05-23173257.png)
+![failed to load](https://raw.githubusercontent.com/alkanoidev/coffee-shop-menu/master/screenshots/Screenshot2022-05-23173316.png)
 
 ### ⚙ Install
 
