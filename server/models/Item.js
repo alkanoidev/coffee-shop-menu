@@ -21,6 +21,23 @@ exports.getItem = async (parameters) => {
   return item;
 };
 
+exports.search = async (substring) => {
+  const query = {
+    $or: [
+      { name: new RegExp(substring, "i") },
+      { price: new RegExp(substring, "i") },
+    ],
+  };
+  let result;
+  try {
+    result = await itemsCollection.find(query).toArray();
+  } catch (err) {
+    result = err;
+  } finally {
+    return result;
+  }
+};
+
 exports.newItem = async (item) => {
   const result = await itemsCollection.insertOne(item);
   return result;

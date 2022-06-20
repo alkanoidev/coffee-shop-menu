@@ -86,6 +86,7 @@ export default function Items() {
       </div>
       <div className="w-full mb-5 flex justify-center items-center">
         <SearchAndFilter
+          setItems={setItems}
           categories={categories}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}

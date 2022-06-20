@@ -1,13 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Dropdown from "../Dropdown/Dropdown";
+import axios from "axios";
 import "./style.scss";
 
 export default function SearchAndFilter({
   categories,
   setSelectedCategory,
-  selectedCategory
+  selectedCategory,
+  setItems,
 }) {
   const [isFocused, setIsFocused] = useState(false);
+  const [searchString, setSearchString] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .get(`http://localhost:3001/items/search/${searchString}`)
+      .then((res) => {
+        setItems(res.data.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div
@@ -35,17 +50,22 @@ export default function SearchAndFilter({
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
           ></path>
         </svg>
-        <input
-          type="text"
-          placeholder="Search"
-          id="input"
-          onFocus={() => {
-            setIsFocused(true);
-          }}
-          onBlur={() => {
-            setIsFocused(false);
-          }}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search"
+            id="input"
+            onChange={(e) => {
+              setSearchString(e.target.value);
+            }}
+            onFocus={() => {
+              setIsFocused(true);
+            }}
+            onBlur={() => {
+              setIsFocused(false);
+            }}
+          />
+        </form>
       </div>
     </div>
   );

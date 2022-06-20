@@ -14,4 +14,6 @@ router.post("/item/update/:name", itemController.editItem);
 
 router.delete("/item/delete/:name", itemController.deleteItem);
 
+router.get("/search/:substring", itemController.search);
+
 module.exports = router;

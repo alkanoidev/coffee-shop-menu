@@ -11,6 +11,10 @@ exports.item = async (req, res) => {
   res.json({ item: await item.getItem(req.params) });
 };
 
+exports.search = async (req, res) => {
+  res.json({ items: await item.search(req.params.substring) });
+};
+
 exports.newItem = async (req, res) => {
   const categoryName = req.params.category;
   const myCategory = await category.getCategory({ name: categoryName });

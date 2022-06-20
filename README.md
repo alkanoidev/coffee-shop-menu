@@ -5,22 +5,24 @@ Manage your shops inventory.
 ### ✨ [Demo](TODO: hostuj)
 
 ### 🛠 Tech Stack:
-| Frontend      | Backend     |
-| ------------- | ----------- |
-| React         | NodeJS      |
-| React-router  | ExpressJS   |
-| TailwindCSS   | MongoDB     |
-| Sass          | Axios       | 
-| Axios         |         
-| Framer-Motion |         
+
+| Frontend      | Backend   |
+| ------------- | --------- |
+| React         | NodeJS    |
+| React-router  | ExpressJS |
+| TailwindCSS   | MongoDB   |
+| Sass          | Axios     |
+| Axios         |
+| Framer-Motion |
 | Vite          |
 | Figma         |
 
 ### 🚀 Features
+
 - Create Read Update Delete functionality
 - MVC architecture
 - Sorting items by category
-- Searching items by name
+- Searching items by name and price
 - React Modals (Portal) with custom routes
 - Framer Motion scrolling animation
 
@@ -47,7 +49,7 @@ cd server && npm run dev
 
 ### Author 👋
 
- **Filip Ivanovic**
+**Filip Ivanovic**
 
-* Website: [https://filipivanovic.netlify.app/](https://filipivanovic.netlify.app/)
-* Github: [@alkanoidev](https://github.com/alkanoidev)
+- Website: [https://filipivanovic.netlify.app/](https://filipivanovic.netlify.app/)
+- Github: [@alkanoidev](https://github.com/alkanoidev)
