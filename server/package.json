@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "node app.js",
-    "build-client": "vite build"
+    "netlify:local": "netlify-lambda serve /",
+    "netlify:build": "netlify-lambda build /",
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "dependencies": {
     "async": "^3.2.3",
@@ -15,16 +17,18 @@
     "debug": "~2.6.9",
     "dotenv": "^16.0.0",
     "express": "~4.16.1",
+    "flowbite": "^1.4.4",
+    "framer-motion": "^6.3.3",
     "http-errors": "~1.6.3",
     "mongodb": "^4.5.0",
     "morgan": "~1.9.1",
+    "netlify-lambda": "^2.0.15",
     "nodemon": "^2.0.15",
-    "flowbite": "^1.4.4",
-    "framer-motion": "^6.3.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
+    "serverless-http": "^3.0.1",
     "vite-plugin-svgr": "^2.1.0"
   },
   "devDependencies": {

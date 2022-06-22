@@ -24,7 +24,7 @@ export default function Items() {
     setItems([]);
     if (selectedCategory === "All Categories") {
       axios // get all items
-        .get(`http://localhost:3001/items/`)
+        .get(`/.server/items/`)
         .then((res) => {
           setItems(res.data.itemList);
           setIsLoading(false);
