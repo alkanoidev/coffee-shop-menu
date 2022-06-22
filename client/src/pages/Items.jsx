@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Item from "../components/Item/Item";
-import Layout from "../components/Layout/Layout";
 import axios from "axios";
 import NewItemFAB from "../components/Buttons/NewItemFAB";
 import Loader from "../components/Loader/Loader";
@@ -20,10 +19,9 @@ export default function Items() {
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const navigate = useNavigate();
 
-  let delay = 0;
-
   const getItems = () => {
     setIsLoading(true);
+    setItems([]);
     if (selectedCategory === "All Categories") {
       axios // get all items
         .get(`http://localhost:3001/items/`)
@@ -94,7 +92,6 @@ export default function Items() {
       </div>
       {isLoading && <Loader />}
       {items.map((item) => {
-        delay += 0.1;
         return (
           <Item
             key={item._id}
@@ -104,7 +101,6 @@ export default function Items() {
             price={item.price}
             items={items}
             setItems={setItems}
-            delay={delay}
           />
         );
       })}

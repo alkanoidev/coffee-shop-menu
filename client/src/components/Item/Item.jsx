@@ -13,7 +13,6 @@ export default function Item({
   price,
   items,
   setItems,
-  delay,
 }) {
   const [editMode, setEditMode] = useState(false);
   const [item, setItem] = useState({
@@ -55,17 +54,13 @@ export default function Item({
       return prev;
     });
   };
+
   return (
     <motion.div
       className="item"
+      variants={itemVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false }}
-      transition={{ delay: delay }}
-      variants={{
-        visible: { opacity: 1, x: 0 },
-        hidden: { opacity: 0, x: -100 },
-      }}
+      animate="show"
     >
       {editMode ? (
         <ItemEditMode
@@ -114,3 +109,8 @@ export default function Item({
     </motion.div>
   );
 }
+
+const itemVariants = {
+  hidden: { scale: 0, top: 100 },
+  show: { scale: 1, top: 30 },
+};

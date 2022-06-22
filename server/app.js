@@ -14,7 +14,6 @@ const client = new MongoClient(MONGO_URI);
 client.connect();
 const database = client.db("inventoryapplication");
 module.exports.database = database;
-// console.log(database);
 
 const itemRouter = require("./routes/itemRouter");
 const categoryRouter = require("./routes/categoryRouter");
