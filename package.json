@@ -4,12 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "nodemon app.js",
-    "netlify:local": "netlify-lambda serve /",
-    "netlify:build": "netlify-lambda build /",
     "start": "./node_modules/.bin/netlify-lambda serve src",
     "build": "./node_modules/.bin/netlify-lambda build src",
-    "postinstall": "if [ $CLIENT_ENV ]; then npm run postinstall-client; elif [ $SERVER_ENV ]; then npm run postinstall-server; else echo no environment detected, please set CLIENT_ENV or SERVER_ENV; fi",
-    "postinstall-server": "npm install"
+    "postinstall": "npm install"
   },
   "dependencies": {
     "async": "^3.2.3",
