@@ -1,5 +1,5 @@
 const mongodb = require("mongodb");
-const { database } = require("../app.js");
+const { database } = require("../functions/app");
 const categoriesCollection = database.collection("categories");
 
 const Category = {

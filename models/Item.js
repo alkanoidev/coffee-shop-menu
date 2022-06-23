@@ -1,6 +1,6 @@
 const mongodb = require("mongodb");
 const { ObjectId } = require("mongodb");
-const { database } = require("../app.js");
+const { database } = require("../functions/app");
 
 const Item = {
   name: { type: String, required: true },
