@@ -1,4 +1,4 @@
-const category = require("../models/category.js");
+const category = require("../models/Category");
 const axios = require("axios/index");
 const { ObjectId } = require("mongodb");
 

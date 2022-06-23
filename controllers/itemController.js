@@ -1,5 +1,5 @@
-const item = require("../models/Item.js");
-const category = require("../models/Category.js");
+const item = require("../models/Item");
+const category = require("../models/Category");
 const { ObjectId } = require("mongodb");
 
 exports.itemList = async (req, res) => {
