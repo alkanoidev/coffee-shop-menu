@@ -12,9 +12,7 @@ require("dotenv").config();
 const itemRouter = require("../routes/itemRouter");
 const categoryRouter = require("../routes/categoryRouter");
 
-// const MONGO_URI = process.env.MONGO_URI;
-const MONGO_URI =
-  "mongodb+srv://root:root@cluster0.w8w3a.mongodb.net/inventoryapplication?retryWrites=true&w=majority";
+const MONGO_URI = process.env.MONGO_URI;
 const PORT = process.env.PORT || 3000;
 
 const client = new MongoClient(MONGO_URI);
