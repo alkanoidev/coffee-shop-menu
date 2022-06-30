@@ -2,8 +2,6 @@
 
 Manage your shops inventory.
 
-### ✨ [Demo](TODO: hostuj)
-
 ### 🛠 Tech Stack:
 
 | Frontend      | Backend   |
