@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 
 const client = new MongoClient(MONGO_URI);
 client.connect();
-const database = client.db("Project 0");
+const database = client.db("inventoryapplication");
 module.exports.database = database;
 
 const app = express();
